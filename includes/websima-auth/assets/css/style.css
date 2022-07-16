@@ -1,0 +1,103 @@
+#account_login_form_wrapper , #account_register_form_wrapper , #account_profile_form_wrapper{
+    display: none;
+}
+#websima-auth-modal .form-row {
+    margin: 0 0 8px 0;
+	display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -5px;
+    margin-left: -5px;
+}
+#websima-auth-modal .form-row.buttons-wrapper{
+	justify-content:center;
+}
+.form-row>.col, .form-row>[class*=col-] {
+    padding-right: 5px;
+    padding-left: 5px;
+}
+#websima-auth-modal form .form-description,
+#websima-auth-modal form .form-text,
+#websima-auth-modal form label:not(.error) {
+    display: block;
+    text-align: right;
+    margin: 0 0 5px 0;
+}
+/* Chrome, Safari, Edge, Opera */
+#websima-auth-modal form input::-webkit-outer-spin-button,
+#websima-auth-modal form input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+#websima-auth-modal form input {
+	-moz-appearance: textfield;
+     border: 1px solid #fafafa;
+	 background: #fafafa;
+	 padding:10px 20px;
+	 border-radius: 15px;
+	 height: 50px;
+	 display: block;
+	 box-sizing: border-box;
+	 font-family: inherit;
+	 width: 100%;
+	 transition: 0.3s;
+	 font-size: 14px;
+	 margin-bottom:10px;
+}
+#websima-auth-modal form button {
+    background:#fff;
+	color:var(--color1)
+}
+
+#websima-auth-modal form button:hover:after{
+	background:var(--color2)
+}
+#websima-auth-modal form label.error {
+    color: var(--danger);
+    font-size: 12px;
+    position: absolute;
+    right: 0;
+	bottom: -15px;
+}
+#websima-auth-modal .resend_code_wrapper span.resend-code:not(.disable) {
+    cursor: pointer;
+}
+#websima-auth-modal .resend_code_wrapper {
+    display: block;
+    width: 100%;
+	text-align: right;
+}
+#websima-auth-modal .alert {
+    background-color: var(--color1)!important;
+    text-align: center;
+    font-size: 13px;
+    color: #fff;
+    border-radius: 0;
+    margin: -2px 0;
+}
+#websima-auth-modal .modal-dialog{
+	 background-color: var(--color1);
+} 
+
+.exit-account {
+    position: absolute;
+    left: 0;
+    right: 0;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+    top: 100%;
+    background: #fff;
+    z-index: 1;
+    border-radius: 0 0 3px 3px;
+    padding: 4px 20px;
+    font-size: 14px;
+	opacity: 0;
+    visibility: hidden;
+}    
+.head_account:hover .exit-account{
+	opacity:1;
+	visibility:visible;
+}
