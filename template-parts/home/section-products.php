@@ -39,7 +39,10 @@ $active_product_slider_svg = get_sub_field("active_product_slider_svg");
                 $query_product->the_post();
                 ?>
                 <?php get_template_part("template-parts/home/item-post") ?>
-            <?php } ?>
+            <?php }
+            wp_reset_query();
+            wp_reset_postdata();
+            ?>
         </div>
     </div>
 

@@ -5,12 +5,11 @@
     $.fn.extend({
         donetyping: function (callback, timeout) {
             timeout = timeout || 1e3; // 1 second default timeout
-            var timeoutReference,
-                doneTyping = function (el) {
-                    if (!timeoutReference) return;
-                    timeoutReference = null;
-                    callback.call(el);
-                };
+            var timeoutReference, doneTyping = function (el) {
+                if (!timeoutReference) return;
+                timeoutReference = null;
+                callback.call(el);
+            };
             return this.each(function (i, el) {
                 var $el = $(el);
                 // Chrome Fix (Use keyup over keypress to detect backspace)
@@ -130,21 +129,12 @@
             navText: ["<i class='icon-chevron-thin-right'></i>", "<i class='icon-chevron-thin-left'></i>"],
             responsive: {
                 0: {
-                    items: 2,
-                    margin: 10,
-                    stagePadding: 20,
-                },
-                450: {
-                    items: 3,
-                    margin: 10,
-                    stagePadding: 20,
-                },
-                768: {
-                    items: 3.5,
-                    margin: 10,
-                    stagePadding: 20,
-                },
-                992: {
+                    items: 2, margin: 10, stagePadding: 20,
+                }, 450: {
+                    items: 3, margin: 10, stagePadding: 20,
+                }, 768: {
+                    items: 3.5, margin: 10, stagePadding: 20,
+                }, 992: {
                     items: 4,
                 },
             }
@@ -166,11 +156,9 @@
                 0: {
                     items: 2,
 
-                },
-                576: {
+                }, 576: {
                     items: 2,
-                },
-                992: {
+                }, 992: {
                     items: 6,
                 }
             }
@@ -191,11 +179,9 @@
                 0: {
                     items: 1,
 
-                },
-                576: {
+                }, 576: {
                     items: 2,
-                },
-                992: {
+                }, 992: {
                     items: 4,
                 }
             }
@@ -214,17 +200,12 @@
             navText: ["<i class='icon-chevron-thin-right'></i>", "<i class='icon-chevron-thin-left'></i>"],
             responsive: {
                 0: {
-                    items: 1,
-                    loop: true,
+                    items: 1, loop: true,
 
-                },
-                576: {
-                    items: 2,
-                    loop: true,
-                },
-                992: {
-                    items: 3,
-                    loop: false,
+                }, 576: {
+                    items: 2, loop: true,
+                }, 992: {
+                    items: 3, loop: false,
                 }
             }
         });
@@ -242,17 +223,12 @@
             navText: ["<i class='icon-chevron-thin-right'></i>", "<i class='icon-chevron-thin-left'></i>"],
             responsive: {
                 0: {
-                    items: 2,
-                    loop: true,
+                    items: 2, loop: true,
 
-                },
-                576: {
-                    items: 2,
-                    loop: true,
-                },
-                992: {
-                    items: 6,
-                    loop: false,
+                }, 576: {
+                    items: 2, loop: true,
+                }, 992: {
+                    items: 6, loop: false,
                 }
             }
         });
@@ -278,14 +254,11 @@
             responsive: {
                 0: {
                     items: 2,
-                },
-                576: {
+                }, 576: {
                     items: 2,
-                },
-                768: {
+                }, 768: {
                     items: 3,
-                },
-                992: {
+                }, 992: {
                     items: 4,
                 },
             }
@@ -354,16 +327,9 @@
             var subject = jQuery(this).val().trim();
             if (subject.length > 1) {
                 jQuery.ajax({
-                    type: 'post',
-                    async: true,
-                    url: ajax_data.url,
-                    data: {
-                        action: 'results_search',
-                        'subject': subject,
-                        keyword: jQuery('#search-text').val(),
-                    },
-                    dataType: "html",
-                    /* beforeSend : function(){
+                    type: 'post', async: true, url: ajax_data.url, data: {
+                        action: 'results_search', 'subject': subject, keyword: jQuery('#search-text').val(),
+                    }, dataType: "html", /* beforeSend : function(){
                         jQuery('.search-form .search-remove').fadeOut(400);
                         jQuery('.search-form .search-loading').fadeIn(400);
                     } */
@@ -389,13 +355,7 @@
             var thumbnailSlider = jQuery('#single-product-thumbnail');
             var duration = 500;
             slider.owlCarousel({
-                loop: false,
-                rtl: true,
-                nav: false,
-                lazyLoad: true,
-                dots: false,
-                items: 1,
-                mouseDrag: false
+                loop: false, rtl: true, nav: false, lazyLoad: true, dots: false, items: 1, mouseDrag: false
             }).on('changed.owl.carousel', function (e) {
                 thumbnailSlider.trigger('to.owl.carousel', [e.item.index, duration, true]);
             });
@@ -411,14 +371,11 @@
                 responsive: {
                     0: {
                         items: 3
-                    },
-                    400: {
+                    }, 400: {
                         items: 2
-                    },
-                    992: {
+                    }, 992: {
                         items: 3
-                    },
-                    1200: {
+                    }, 1200: {
                         items: 4
                     }
                 }
@@ -430,9 +387,7 @@
             });
 
             jQuery('.page_lightgallery').lightGallery({
-                thumbnail: true,
-                selector: '.product_gallery_item a',
-                subHtmlSelectorRelative: true
+                thumbnail: true, selector: '.product_gallery_item a', subHtmlSelectorRelative: true
             });
         }
         jQuery(document).ready(function () {
@@ -543,9 +498,7 @@
 
     if (jQuery('.owl-gallery').length > 0) {
         jQuery('.page_lightgallery').lightGallery({
-            thumbnail: true,
-            selector: '.gallery_item a',
-            subHtmlSelectorRelative: true
+            thumbnail: true, selector: '.gallery_item a', subHtmlSelectorRelative: true
         });
     }
 
@@ -613,41 +566,177 @@
 
 (function ($) {
     let slider_header = $('.slider_header').owlCarousel({
-        items: 1,
-        margin: 30,
-        rtl: true,
-        loop: true,
-        dots: false,
+        items: 1, margin: 30, rtl: true, loop: true, dots: false,
     })
     let slider_offer_day = $('.slider_offer_day').owlCarousel({
-        items: 1,
-        margin: 30,
-        rtl: true,
-        loop: true,
-        dots: false,
+        items: 1, margin: 30, rtl: true, dots: false, loop: true, mouseDrag: false, touchDrag: false
     })
     let swiper_category_product = $('.swiper_category_product').owlCarousel({
-        items: 7.3,
-        margin: 24,
-        rtl: true,
-        loop: true,
-        dots: true,
-        // center: true
+        items: 7.3, margin: 24, rtl: true, loop: true, dots: true, // center: true
     })
     let slider_brands_index = $('.slider_brands_index').owlCarousel({
-        items: 6,
-        margin: 32,
-        rtl: true,
-        dots: true,
+        items: 6, margin: 32, rtl: true, dots: true,
+    })
+    let best_sallers_product = $('.best_sallers_product').owlCarousel({
+        items: 3.4, margin: 25, rtl: true, dots: false
+    })
+    let products_offer_slider = $('.products_offer_slider').owlCarousel({
+        items: 6, margin: 25, rtl: true, dots: false, loop: true
     })
 
-
     $(".navigation_slider_arrow.next").click(function () {
-        slider_header.trigger('next.owl.carousel');
+        let list_best_sellers = $(this).parents(".list_best_sellers")
+        console.log(list_best_sellers.length)
+        if (list_best_sellers.length) {
+            best_sallers_product.trigger('next.owl.carousel');
+        } else {
+            slider_header.trigger('next.owl.carousel');
+        }
     })
 
     $(".navigation_slider_arrow.prev").click(function () {
+        let list_best_sellers = $(this).parents("list_best_sellers")
+        if (list_best_sellers.length) {
+            best_sallers_product.trigger('prev.owl.carousel');
+        }
         slider_header.trigger('prev.owl.carousel');
     })
 
+    $(".slider_offer_day").ready(function () {
+
+        setInterval(function () {
+            let width_timer = $(".timer")[0].offsetWidth
+            $(".timer").css({"width": width_timer - 1})
+            if (width_timer == 0) {
+                slider_offer_day.trigger('next.owl.carousel');
+                $(".timer").css({"width": 200})
+            }
+        }, 15)
+
+    })
+
+
+    /**
+     * generate tab
+     * @param {string} [tabIndex] - The tabIndex is value of data-tabindex in parent tab.
+     */
+    function tabInit(tabIndex) {
+        if (typeof tabIndex === "undefined" || tabIndex === null) {
+            $('[data-tabindex]').each(function () {
+                let ele = $(this), dataTabindex = ele.attr('data-tabindex'), hasTrueTab = false;
+                ele.find(' .tab-content [data-tabc][data-parent="' + dataTabindex + '"]').hide();
+                ele.find(' .tab-title  [data-tab][data-parent="' + dataTabindex + '"]').each(function () {
+                    let i;
+                    if ($(this).hasClass('active')) {
+                        i = $(this).attr('data-tab');
+                        ele.find('.tab-content [data-tabc="' + i + '"][data-parent="' + dataTabindex + '"]').addClass('active').fadeIn();
+                        hasTrueTab = true;
+                    }
+                    if (hasTrueTab !== true) {
+                        ele.find('.tab-content [data-tabc="' + i + '"][data-parent="' + dataTabindex + '"]:first-of-type').fadeIn();
+                        ele.find('.tab-title [data-tab="' + i + '"][data-parent="' + dataTabindex + '"]:first-of-type').addClass('active');
+                    }
+                });
+                ele.find(' .tab-title [data-tab][data-parent="' + dataTabindex + '"]').click(function () {
+                    if (!$(this).hasClass('active')) {
+                        let t = $(this).attr('data-tab'),
+                            oldActiveTab = ele.find(' .tab-title  [data-tab][data-parent="' + dataTabindex + '"].active').attr('data-tab');
+                        ele.find(' .tab-title  [data-tab=' + oldActiveTab + '][data-parent="' + dataTabindex + '"]').removeClass('active');
+                        ele.find(' .tab-content  [data-tabc=' + oldActiveTab + '][data-parent="' + dataTabindex + '"]').removeClass('active').hide();
+                        $(this).addClass('active');
+                        ele.find(' .tab-content  [data-tabc="' + t + '"][data-parent="' + dataTabindex + '"]').fadeIn();
+                    }
+                });
+            });
+        } else {
+            let dataTabindex = tabIndex;
+            tabIndex = '[data-tabindex=' + tabIndex + ']';
+            $(tabIndex).find(' .tab-content [data-tabc][data-parent="' + dataTabindex + '"]').hide();
+            $(tabIndex).find(' .tab-title [data-tab][data-parent="' + dataTabindex + '"]').each(function () {
+                var i;
+                if ($(this).hasClass('active')) {
+                    i = $(this).attr('data-tab');
+                    $(tabIndex).find(' .tab-content  [data-tabc="' + i + '"][data-parent="' + dataTabindex + '"]').addClass('active').fadeIn();
+                }
+            });
+            $(tabIndex).find(' .tab-title  [data-tab][data-parent="' + dataTabindex + '"]').click(function () {
+                if (!$(this).hasClass('active')) {
+                    let t = $(this).attr('data-tab'),
+                        oldActiveTab = $(tabIndex).find(' .tab-title  [data-tab][data-parent="' + dataTabindex + '"].active').attr('data-tab');
+                    $(tabIndex).find(' .tab-title  [data-tab=' + oldActiveTab + '][data-parent="' + dataTabindex + '"]').removeClass('active');
+                    $(tabIndex).find(' .tab-content  [data-tabc=' + oldActiveTab + '][data-parent="' + dataTabindex + '"]').removeClass('active').hide();
+                    $(this).addClass('active');
+                    $(tabIndex).find(' .tab-content  [data-tabc="' + t + '"][data-parent="' + dataTabindex + '"]').fadeIn();
+                }
+            });
+        }
+        $('body').on('click', '[data-tabindex-current]', function () {
+            let dataTabindex = $(this).attr('data-tabindex-current'), ele = $('[data-tabindex="' + dataTabindex + '"]'),
+                tabCurrent = $(this).attr('data-tab-current');
+            ele.find('.tab-title  [data-tab][data-parent="' + dataTabindex + '"]').removeClass('active');
+            ele.find('.tab-content  [data-tabc][data-parent="' + dataTabindex + '"]').hide();
+            ele.find('.tab-title  [data-tab="' + tabCurrent + '"][data-parent="' + dataTabindex + '"]').addClass('active');
+            ele.find('.tab-content  [data-tabc="' + tabCurrent + '"][data-parent="' + dataTabindex + '"]').fadeIn();
+        });
+    }
+
+    tabInit();
+
+
+    function get_time_format(get_time_expire) {
+        let now = new Date().getTime();
+        let distance = get_time_expire - now;
+
+        let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+
+        return {
+            "days": Math.abs(days),
+            "hours": Math.abs(hours),
+            "minutes": Math.abs(minutes),
+            "seconds": Math.abs(seconds),
+            "distance": distance
+        };
+    }
+
+    $(".item-product").ready(function () {
+        $(".item-product").each(function (key, item) {
+            let get_date_expire = $(item).attr("data-sale-to")
+            let get_date_start = $(item).attr("data-sale-from")
+
+            if (get_date_expire && get_date_start) {
+                let get_time_expire = new Date(get_date_expire).getTime();
+                let get_time_start = new Date(get_date_start).getTime();
+
+                let info = get_time_format(get_time_expire)
+                $(item).find(".timer_post__day .days").html(info.days)
+                $(item).find(".timer_post__day .hours").html(info.hours)
+                $(item).find(".timer_post__day .minutes").html(info.minutes)
+                $(item).find(".timer_post__day .seconds ").html(info.seconds)
+
+                // let off = (get_time_expire - get_time_start)
+                // let percent = (info.distance * 100) / off
+                // $(item).find(".timer_post__line span").css({"width": percent + '%'})
+
+
+                let x = setInterval(function () {
+                    let info = get_time_format(get_time_expire)
+                    $(item).find(".timer_post__day .days").html(info.days)
+                    $(item).find(".timer_post__day .hours").html(info.hours)
+                    $(item).find(".timer_post__day .minutes").html(info.minutes)
+                    $(item).find(".timer_post__day .seconds ").html(info.seconds)
+
+                    let off = (get_time_expire - get_time_start)
+                    let percent = (info.distance * 100) / off
+                    $(item).find(".timer_post__line span ").css({"width": percent + '%'})
+
+                }, 1000);
+            }
+        })
+    })
+
 }(jQuery));
+

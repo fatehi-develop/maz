@@ -1,66 +1,85 @@
 <?php
-$amazing_discount_period = get_sub_field("amazing_discount_period");
-if (isset($amazing_discount_period) && strtotime($amazing_discount_period) > current_time("timestamp")) {
-    $args_product = array(
-        'post_type' => 'product',
-        'posts_per_page' => 9,
-        'meta_query' => array(
-            'relation' => 'OR',
-            array(
-                'key' => '_sale_price',
-                'value' => 0,
-                'compare' => '>',
-                'type' => 'numeric'
-            ),
-            array(
-                'key' => '_min_variation_sale_price',
-                'value' => 0,
-                'compare' => '>',
-                'type' => 'numeric'
-            )
+$args_product = array(
+    'post_type' => 'product',
+    'posts_per_page' => 9,
+    'meta_query' => array(
+        'relation' => 'OR',
+        array(
+            'key' => '_sale_price',
+            'value' => 0,
+            'compare' => '>',
+            'type' => 'numeric'
+        ),
+        array(
+            'key' => '_min_variation_sale_price',
+            'value' => 0,
+            'compare' => '>',
+            'type' => 'numeric'
         )
-    );
-    $query_product = new WP_Query($args_product);
-    if (isset($amazing_discount_period) && strtotime($amazing_discount_period) > current_time("timestamp")) {
-        $box_amazing_discounts = true;
-    }
-    ?>
-    <?php if (0 && $query_product->have_posts()) { ?>
-        <div class="box-amazing_discounts" data-sale-to="<?= $amazing_discount_period ?>">
-            <div class="info_amazing_discounts">
-                <span class="info_amazing_discounts__title">تخفیفات شگفت انگیز !</span>
-                <ul class="info_amazing_discounts__timer">
+    )
+);
+$query_product = new WP_Query($args_product);
+?>
+<?php if ($query_product->have_posts()) { ?>
+    <div class="box_products_offer">
+        <div class="container container--1300">
+            <div class="products_offer" data-tabindex="status">
+                <div data-tabindex="status">
 
-                    <li class="seconds"><span>00</span></li>
-                    <li class="minutes"><span>00</span></li>
-                    <li class="hours"><span>00</span></li>
-                    <li class="days"><span>00</span></li>
+                    <div class="header_products_offer">
+                        <div class="header_products_offer__title">
+                            <span class="icon"><i class="icon-percent"></i></span>
+                            <span class="title"> شگفت‌انگیز‌ها</span>
+                        </div>
+                        <div class="tab-title">
+                            <div data-tab="awaiting-payment" data-parent="status"
+                                 class="item active">
+                                <span>همه</span>
+                            </div>
 
-                    <li><i class="icon-time"></i></li>
-                </ul>
-                <a class="info_amazing_discounts__link" href="#">
-                    مشاهده همه تخفیفات
-                    <em>></em>
-                </a>
-                <img class="img-special-offer" src="<?= THEME_URL ?>/assets/img/098%202.png" alt="">
-            </div>
-            <div class="container container--1240">
-                <div class="d-flex">
-                    <div class=" slider_amazing_discounts">
-                        <div class="owl-carousel swiper_category_product_offer owl-custom-slider">
+                            <div data-tab="processing" data-parent="status" class="item">
+                                <span>کتاب کمک درسی </span>
+                            </div>
+                        </div>
+                        <a class="header_products_offer__link" href="">
+                            مشاهده همه
+                            <i class="icon-Big-Arrows-left"></i>
+                        </a>
+                    </div>
 
-                                <?php while ($query_product->have_posts()) {
-                                    $query_product->the_post();
-                                    ?>
+                    <div class="content_products_offer">
+                        <div class="tab-content">
+
+                            <div data-tabc="awaiting-payment" data-parent="status">
+                                <div class="owl-carousel products_offer_slider">
+                                    <?php while ($query_product->have_posts()) {
+                                        $query_product->the_post();
+                                        ?>
                                         <?php get_template_part("template-parts/home/item-post") ?>
-                                <?php } ?>
+                                    <?php }
+                                    wp_reset_query();
+                                    wp_reset_postdata();
+                                    ?>
+                                </div>
+                            </div>
 
-                            <div class="swiper-pagination"></div>
+                            <div data-tabc="processing" data-parent="status">
+                                <div class="owl-carousel products_offer_slider">
+                                    <?php while ($query_product->have_posts()) {
+                                        $query_product->the_post();
+                                        ?>
+                                        <?php get_template_part("template-parts/home/item-post") ?>
+                                    <?php }
+                                    wp_reset_query();
+                                    wp_reset_postdata();
+                                    ?>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-    <?php }
-} ?>
+    </div>
+<?php } ?>

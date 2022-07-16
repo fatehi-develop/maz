@@ -4,7 +4,7 @@ get_header();
 get_template_part("template-parts/home/section-slider-header")
 ?>
 <?php
-$layouts = array('feature', 'categories', 'products', 'counter', 'content', 'blog', 'banner', 'brands', 'faq', 'cta', 'testimonial', 'hero', 'teams' , 'products-offer');
+$layouts = array('best-sellers' , 'feature', 'categories', 'products', 'counter', 'content', 'blog', 'banner', 'brands', 'faq', 'cta', 'testimonial', 'hero', 'teams' , 'products-offer');
 if (have_rows('home_layouts', get_queried_object_id())) :
     while (have_rows('home_layouts', get_queried_object_id())) : the_row();
         foreach ($layouts as $layout) {

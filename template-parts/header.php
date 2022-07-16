@@ -14,7 +14,7 @@ $home_logo = get_field("home_logo", "option");
                 </div>
                 <div class="header-top__left">
                     <div class="register">
-                        <i class="icon-user"></i>
+                        <i class="icon-profile"></i>
                         <?= websima_auth_modal_btn(); ?>
                     </div>
                     <a class="basket" href="<?= wc_get_cart_url() ?>">
@@ -30,7 +30,7 @@ $home_logo = get_field("home_logo", "option");
                     ]); ?>
                 </div>
                 <a class="call_us" href="">
-                    <i class="icon-call"></i>
+                    <i class="icon-tel"></i>
                     <span>021 - 22164891</span>
                 </a>
             </div>

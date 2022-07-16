@@ -16,19 +16,17 @@ $count_days_after_publish_product = floor($diff_time / (24 * 60 * 60));
 $get_availability = $product->get_availability()["class"];
 $out_of_stock_product = $product->get_availability()["class"] == "out-of-stock";
 ?>
-<div class="item-product">
+<div class="item-product" data-sale-to="<?= $sales_price_to ?>" data-sale-from="<?= $sales_price_from ?>">
     <?php if ($count_days_after_publish_product < 2) { ?>
         <span class="new">جدید!</span>
     <?php } ?>
-    <div class="item-product__img">
-        <a href="<?= get_the_permalink() ?>"><?= the_thumbnail("img_product_index") ?></a>
-    </div>
+    <a class="item-product__img" href="<?= get_the_permalink() ?>"><?= the_thumbnail("img_product_index") ?></a>
 
     <div class="title">
         <h2 class="pf-2"><a href="<?= get_the_permalink() ?>"><?= get_the_title() ?></a></h2>
     </div>
 
-    <div class="box_price">
+    <div class="box_price <?= $status_offer ? "m-12" : '' ?>">
         <?php if (!$out_of_stock_product) { ?>
             <?php if ($discount_percentage) { ?><span class="box_price__percent">
                 ٪<?= convertEnglishNumbersToPersian($discount_percentage) ?></span><?php } ?>
@@ -50,6 +48,20 @@ $out_of_stock_product = $product->get_availability()["class"] == "out-of-stock";
             <span class="out_of_stock_product">در انبار موجود نمی باشد</span>
         <?php } ?>
     </div>
+
+    <?php if ($status_offer) { ?>
+        <div class="timer_post">
+            <div class="timer_post__line">
+                <span></span>
+            </div>
+            <div class="timer_post__day">
+                <span class="days">۱۲</span>:
+                <span class="hours">۴۵</span>:
+                <span class="minutes">۱۲</span>:
+                <span class="seconds">۳۳</span>
+            </div>
+        </div>
+    <?php } ?>
 
 </div>
 
