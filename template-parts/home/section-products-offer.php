@@ -77,6 +77,14 @@ $query_product = new WP_Query($args_product);
                             </div>
 
                         </div>
+                        <div class="navigation_slider offer">
+                     <span class="navigation_slider_arrow prev">
+                       <i class="icon-Big-Arrows-Right"></i>
+                    </span>
+                            <span class="navigation_slider_arrow next">
+                       <i class="icon-Big-Arrows-left"></i>
+                    </span>
+                        </div>
                     </div>
                 </div>
             </div>

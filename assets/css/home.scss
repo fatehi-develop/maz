@@ -1,3 +1,4 @@
+$px12: 0.9230769230769231em;
 $px13: 1rem;
 $px14: 1.0769230769230769em;
 $px15: 1.1538461538461537em;
@@ -57,7 +58,7 @@ $px30: 2.3076923076923075em;
   margin-bottom: 100px;
 
   .tab-content {
-    padding-bottom: 88px;
+    padding-bottom: 82px;
   }
 }
 
@@ -71,7 +72,7 @@ $px30: 2.3076923076923075em;
 
     .title {
       font-weight: 600;
-      font-size: 24px;
+      font-size: $px24;
       color: #000000;
     }
 
@@ -97,7 +98,7 @@ $px30: 2.3076923076923075em;
     align-items: center;
     gap: 13px;
     font-weight: 500;
-    font-size: 18px;
+    font-size: $px18;
     line-height: 25px;
     text-align: center;
     color: #7F7D7E;
@@ -113,14 +114,14 @@ $px30: 2.3076923076923075em;
     gap: 32px;
     flex-grow: 1;
     font-weight: 400;
-    font-size: 16px;
+    font-size: $px16;
     color: #464646;
     cursor: pointer;
 
     .item {
       &.active {
         font-weight: 600;
-        font-size: 18px;
+        font-size: $px18;
         color: #98C200;
       }
     }
@@ -145,6 +146,18 @@ $px30: 2.3076923076923075em;
     right: 0;
     background: #98C200;
     height: 350px;
+  }
+}
+
+.content_products_offer{
+  position: relative;
+  &::before{
+    position: absolute;
+    content: url("../img/wave-offer-section.svg");
+    bottom: -7px;
+    right: 50%;
+    width: 285px;
+    transform: translate(50%);
   }
 }
 
@@ -232,7 +245,7 @@ $px30: 2.3076923076923075em;
 
     span {
       font-weight: 600;
-      font-size: 12px;
+      font-size: $px12;
       display: flex;
       color: #FF3E14;
     }
@@ -291,7 +304,7 @@ $px30: 2.3076923076923075em;
 
       h2 {
         font-weight: 500;
-        font-size: 16px;
+        font-size: $px16;
         color: #253343;
         margin-bottom: 10px;
         max-width: 200px;
@@ -307,7 +320,7 @@ $px30: 2.3076923076923075em;
   display: flex;
   align-items: center;
   column-gap: 88px;
-  row-gap: 31px;
+  row-gap: 20px;
   flex-wrap: wrap;
   margin-bottom: 120px;
 
@@ -320,6 +333,7 @@ $px30: 2.3076923076923075em;
   flex-direction: column;
   gap: 22px;
   cursor: pointer;
+  height: 200px;
 
   &__img {
     position: relative;
@@ -348,7 +362,7 @@ $px30: 2.3076923076923075em;
 
   &__title {
     font-weight: 500;
-    font-size: 14px;
+    font-size: $px14;
     color: #464646;
     display: block;
     text-align: center;
@@ -367,7 +381,7 @@ $px30: 2.3076923076923075em;
 
     .item_categoris__title {
       font-weight: 500;
-      font-size: 16px;
+      font-size: $px16;
       color: #000000;
     }
   }
@@ -380,10 +394,14 @@ $px30: 2.3076923076923075em;
   display: flex;
   align-items: center;
   gap: 25px;
+  margin-bottom: 100px;
 
   .banner {
     width: 530px;
     position: relative;
+    background: #EA3174;
+    border-radius: 24px;
+    overflow: hidden;
 
     img {
 
@@ -451,5 +469,11 @@ $px30: 2.3076923076923075em;
   &.best-saller {
     bottom: 8px;
     right: 10px;
+  }
+
+  &.offer {
+    bottom: 0;
+    right: 50%;
+    transform: translate(50%);
   }
 }

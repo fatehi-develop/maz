@@ -29,7 +29,7 @@
   margin-bottom: 100px;
 }
 .products_offer .tab-content {
-  padding-bottom: 88px;
+  padding-bottom: 82px;
 }
 
 .header_products_offer {
@@ -42,7 +42,7 @@
 }
 .header_products_offer__title .title {
   font-weight: 600;
-  font-size: 24px;
+  font-size: 1.8461538462em;
   color: #000000;
 }
 .header_products_offer__title .icon {
@@ -64,7 +64,7 @@
   align-items: center;
   gap: 13px;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 1.3846153846em;
   line-height: 25px;
   text-align: center;
   color: #7F7D7E;
@@ -78,13 +78,13 @@
   gap: 32px;
   flex-grow: 1;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 1.2307692308em;
   color: #464646;
   cursor: pointer;
 }
 .header_products_offer .tab-title .item.active {
   font-weight: 600;
-  font-size: 18px;
+  font-size: 1.3846153846em;
   color: #98C200;
 }
 
@@ -104,6 +104,18 @@
   right: 0;
   background: #98C200;
   height: 350px;
+}
+
+.content_products_offer {
+  position: relative;
+}
+.content_products_offer::before {
+  position: absolute;
+  content: url("../img/wave-offer-section.svg");
+  bottom: -7px;
+  right: 50%;
+  width: 285px;
+  transform: translate(50%);
 }
 
 .section-banners .item-banner {
@@ -170,7 +182,7 @@
 }
 .box_offer_day .offer_day_head span {
   font-weight: 600;
-  font-size: 12px;
+  font-size: 0.9230769231em;
   display: flex;
   color: #FF3E14;
 }
@@ -220,7 +232,7 @@
 }
 .box_offer_day .slider_offer_day .item_slider_offer_day h2 {
   font-weight: 500;
-  font-size: 16px;
+  font-size: 1.2307692308em;
   color: #253343;
   margin-bottom: 10px;
   max-width: 200px;
@@ -230,7 +242,7 @@
   display: flex;
   align-items: center;
   column-gap: 88px;
-  row-gap: 31px;
+  row-gap: 20px;
   flex-wrap: wrap;
   margin-bottom: 120px;
 }
@@ -242,6 +254,7 @@
   flex-direction: column;
   gap: 22px;
   cursor: pointer;
+  height: 200px;
 }
 .item_categoris__img {
   position: relative;
@@ -266,7 +279,7 @@
 }
 .item_categoris__title {
   font-weight: 500;
-  font-size: 14px;
+  font-size: 1.0769230769em;
   color: #464646;
   display: block;
   text-align: center;
@@ -280,7 +293,7 @@
 }
 .item_categoris:hover .item_categoris__title {
   font-weight: 500;
-  font-size: 16px;
+  font-size: 1.2307692308em;
   color: #000000;
 }
 
@@ -288,10 +301,14 @@
   display: flex;
   align-items: center;
   gap: 25px;
+  margin-bottom: 100px;
 }
 .list_best_sellers .banner {
   width: 530px;
   position: relative;
+  background: #EA3174;
+  border-radius: 24px;
+  overflow: hidden;
 }
 .list_best_sellers .banner:before {
   position: absolute;
@@ -345,6 +362,11 @@
 .navigation_slider.best-saller {
   bottom: 8px;
   right: 10px;
+}
+.navigation_slider.offer {
+  bottom: 0;
+  right: 50%;
+  transform: translate(50%);
 }
 
 /*# sourceMappingURL=home.css.map */

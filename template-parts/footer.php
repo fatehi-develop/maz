@@ -90,9 +90,12 @@ $footer_newsletter_shortcode = get_field("footer_newsletter_shortcode", "option"
         <div class="footer-bottom">
             <div class="info-site">
                 <?php if ($logo_footer["url"]) { ?> <img src="<?= $logo_footer["url"] ?>" alt=""><?php } ?>
-                <div>
-                    <p class="des pf-3"><?= @$description_footer ?></p>
-                    <span class="show-more">بیشتر</span>
+                <div class="box-des-footer">
+                    <p class="des before active"><?= @$description_footer ?></p>
+                    <span class="show-more">
+                        <span>بیشتر</span>
+                    <i class="icon-arrow-bottom"></i>
+                    </span>
                 </div>
             </div>
             <ul class="list_documents">

@@ -43,11 +43,6 @@ function wordpressify_setup()
     add_image_size('small-thumbnail', 720, 720, true);
     add_image_size('square-thumbnail', 80, 80, true);
     add_image_size('banner-image', 1024, 1024, true);
-
-
-    //register_nav_menu
-    register_nav_menu('header-top-menu', 'منو بالای هدر');
-    register_nav_menu('header-main-menu', 'منوی اصلی هدر');
 }
 
 add_action('after_setup_theme', 'wordpressify_setup');

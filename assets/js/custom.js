@@ -572,16 +572,85 @@
         items: 1, margin: 30, rtl: true, dots: false, loop: true, mouseDrag: false, touchDrag: false
     })
     let swiper_category_product = $('.swiper_category_product').owlCarousel({
-        items: 7.3, margin: 24, rtl: true, loop: true, dots: true, // center: true
+        items: 7.1, margin: 24, rtl: true, loop: true, dots: true, responsive: {
+            0: {
+                items: 1,
+            }, 350: {
+                items: 2,
+            }, 576: {
+                items: 3,
+            }, 768: {
+                items: 4,
+            }, 992: {
+                items: 5,
+            }, 1200: {
+                items: 6,
+            }, 1300: {
+                items: 6.7,
+            }, 1500: {
+                items: 7.1,
+            }
+
+        }
     })
     let slider_brands_index = $('.slider_brands_index').owlCarousel({
-        items: 6, margin: 32, rtl: true, dots: true,
+        items: 6, margin: 10, rtl: true, dots: true, responsive: {
+            0: {
+                items: 1,
+            }, 250: {
+                items: 2,
+            }, 350: {
+                items: 3,
+            }, 576: {
+                items: 4,
+            }, 992: {
+                items: 5,
+            }, 1200: {
+                items: 6,
+            }, 1300: {
+                items: 6, margin: 32
+            },
+
+        }
+
     })
     let best_sallers_product = $('.best_sallers_product').owlCarousel({
-        items: 3.4, margin: 25, rtl: true, dots: false
+        items: 3.4, margin: 25, rtl: true, dots: false, responsive: {
+            0: {
+                items: 1, margin: 10
+            }, 400: {
+                items: 2,
+            }, 576: {
+                items: 2,
+            }, 768: {
+                items: 3,
+            }, 992: {
+                items: 2.4,
+            }, 1300: {
+                items: 3.4,
+            }
+
+        }
     })
     let products_offer_slider = $('.products_offer_slider').owlCarousel({
-        items: 6, margin: 25, rtl: true, dots: false, loop: true
+        items: 6, margin: 10, rtl: true, dots: false, loop: true, responsive: {
+            0: {
+                items: 1, margin: 10
+            }, 400: {
+                items: 2,
+            }, 576: {
+                items: 2,
+            }, 768: {
+                items: 3,
+            }, 992: {
+                items: 4,
+            }, 1200: {
+                items: 5,
+            }, 1300: {
+                items: 6, margin: 25
+            },
+        }
+
     })
 
     $(".navigation_slider_arrow.next").click(function () {
@@ -613,6 +682,77 @@
             }
         }, 15)
 
+    })
+
+
+    function get_time_format(get_time_expire) {
+        let now = new Date().getTime();
+        let distance = get_time_expire - now;
+
+        let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+
+        return {
+            "days": Math.abs(days),
+            "hours": Math.abs(hours),
+            "minutes": Math.abs(minutes),
+            "seconds": Math.abs(seconds),
+            "distance": distance
+        };
+    }
+
+    $(".item-product").ready(function () {
+        $(".item-product").each(function (key, item) {
+            let get_date_expire = $(item).attr("data-sale-to")
+            let get_date_start = $(item).attr("data-sale-from")
+
+            if (get_date_expire && get_date_start) {
+                let get_time_expire = new Date(get_date_expire).getTime();
+                let get_time_start = new Date(get_date_start).getTime();
+
+                let info = get_time_format(get_time_expire)
+                $(item).find(".timer_post__day .days").html(info.days)
+                $(item).find(".timer_post__day .hours").html(info.hours)
+                $(item).find(".timer_post__day .minutes").html(info.minutes)
+                $(item).find(".timer_post__day .seconds ").html(info.seconds)
+
+                // let off = (get_time_expire - get_time_start)
+                // let percent = (info.distance * 100) / off
+                // $(item).find(".timer_post__line span").css({"width": percent + '%'})
+
+
+                let x = setInterval(function () {
+                    let info = get_time_format(get_time_expire)
+                    $(item).find(".timer_post__day .days").html(info.days)
+                    $(item).find(".timer_post__day .hours").html(info.hours)
+                    $(item).find(".timer_post__day .minutes").html(info.minutes)
+                    $(item).find(".timer_post__day .seconds ").html(info.seconds)
+
+                    let off = (get_time_expire - get_time_start)
+                    let percent = (info.distance * 100) / off
+                    $(item).find(".timer_post__line span ").css({"width": percent + '%'})
+
+                }, 1000);
+            }
+        })
+    })
+
+
+    $(".show-more").click(function () {
+        let des = $(this).parents(".box-des-footer").find("p")
+        if (des.hasClass("before")) {
+            des.css({"height": des[0].scrollHeight})
+            $(this).find("span").html("کمتر")
+            $(this).find("i").css({'rotate': '180deg'})
+        } else {
+            des.css({"height": 67})
+            $(this).find("span").html("بیشتر")
+            $(this).find("i").css({'rotate': '0deg'})
+        }
+        des.toggleClass('before')
     })
 
 
@@ -681,62 +821,6 @@
     }
 
     tabInit();
-
-
-    function get_time_format(get_time_expire) {
-        let now = new Date().getTime();
-        let distance = get_time_expire - now;
-
-        let days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        let seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-
-        return {
-            "days": Math.abs(days),
-            "hours": Math.abs(hours),
-            "minutes": Math.abs(minutes),
-            "seconds": Math.abs(seconds),
-            "distance": distance
-        };
-    }
-
-    $(".item-product").ready(function () {
-        $(".item-product").each(function (key, item) {
-            let get_date_expire = $(item).attr("data-sale-to")
-            let get_date_start = $(item).attr("data-sale-from")
-
-            if (get_date_expire && get_date_start) {
-                let get_time_expire = new Date(get_date_expire).getTime();
-                let get_time_start = new Date(get_date_start).getTime();
-
-                let info = get_time_format(get_time_expire)
-                $(item).find(".timer_post__day .days").html(info.days)
-                $(item).find(".timer_post__day .hours").html(info.hours)
-                $(item).find(".timer_post__day .minutes").html(info.minutes)
-                $(item).find(".timer_post__day .seconds ").html(info.seconds)
-
-                // let off = (get_time_expire - get_time_start)
-                // let percent = (info.distance * 100) / off
-                // $(item).find(".timer_post__line span").css({"width": percent + '%'})
-
-
-                let x = setInterval(function () {
-                    let info = get_time_format(get_time_expire)
-                    $(item).find(".timer_post__day .days").html(info.days)
-                    $(item).find(".timer_post__day .hours").html(info.hours)
-                    $(item).find(".timer_post__day .minutes").html(info.minutes)
-                    $(item).find(".timer_post__day .seconds ").html(info.seconds)
-
-                    let off = (get_time_expire - get_time_start)
-                    let percent = (info.distance * 100) / off
-                    $(item).find(".timer_post__line span ").css({"width": percent + '%'})
-
-                }, 1000);
-            }
-        })
-    })
 
 }(jQuery));
 

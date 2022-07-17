@@ -26,7 +26,7 @@ $home_logo = get_field("home_logo", "option");
             <div class="header-bottom">
                 <div class="menu">
                     <?php wp_nav_menu([
-                        'theme_location' => 'header-top-menu',
+                        'theme_location' => 'top',
                     ]); ?>
                 </div>
                 <a class="call_us" href="">
