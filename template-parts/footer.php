@@ -1,34 +1,25 @@
 <?php
 
 $site_feature_items = get_field("site_feature_items", "option");
-
-$tel_footer = get_field("tel_footer", "option");
-$email_footer = get_field("email_footer", "option");
-$adress_footer = get_field("adress_footer", "option");
-
-
 $logo_footer = get_field("logo_footer", "option");
 $description_footer = get_field("description_footer", "option");
 $social_media = get_field("social_media", "option");
-
-$menu_footer = get_field("menu_footer", "option");
-
 $text_copy_right_footer = get_field("text_copy_right_footer", "option");
-
 $list_symbols = get_field("list_symbols", "option");
-
-$footer_newsletter_shortcode = get_field("footer_newsletter_shortcode", "option");
+$first_footer_title = get_field("first_footer_title", "option");
+$two_footer_title = get_field("two_footer_title", "option");
+$tree_footer_title = get_field("tree_footer_title", "option");
 
 ?>
 
 <div class="box-featured-footer">
     <div class="container container--1300">
         <div class="feature-footer">
-            <?php if ($site_feature_items) { ?>
+            <?php if (isset($site_feature_items) && !empty($site_feature_items)) { ?>
                 <ul class="feature-footer__list">
                     <?php foreach ($site_feature_items as $item) { ?>
                         <li>
-                            <i class="<?= $item["icon"] ?>"></i>
+                            <img src="<?= @$item["pic"]["url"] ?>" alt="">
                             <div class="about">
                                 <span class="pf-1"><?= @$item["text"] ?></span>
                                 <p class="pf-1"><?= @$item["des"] ?></p>
@@ -45,29 +36,23 @@ $footer_newsletter_shortcode = get_field("footer_newsletter_shortcode", "option"
     <footer>
         <div class="footer-top">
             <div class="list_link">
-                <span class="title_link">راه های خرید</span>
-                <ul>
-                    <li><a href="">چگونگی ثبت سفارش و استفاده از کد تخفیف</a></li>
-                    <li><a href=""> چگونگی ارسال کالا و پیگیری سفارش از طریق کد مرسوله</a></li>
-                    <li><a href=""> چگونگی پرداخت </a></li>
-                </ul>
+                <span class="title_link"><?= @$first_footer_title ?></span>
+                <?php wp_nav_menu([
+                    'theme_location' => 'footer1',
+                ]); ?>
             </div>
             <div class="list_link">
-                <span class="title_link">خدمات مشتریان </span>
-                <ul>
-                    <li><a href="">معرفی تخفیف ها </a></li>
-                    <li><a href=""> پرسش های متداول </a></li>
-                    <li><a href=""> بازگشت کالا و شرایط عودت </a></li>
-                    <li><a href=""> حریم خصوصی </a></li>
-                </ul>
+                <span class="title_link"><?= @$two_footer_title ?> </span>
+                <?php wp_nav_menu([
+                    'theme_location' => 'footer2',
+                ]); ?>
             </div>
             <div class="list_link">
-                <span class="title_link">دسترسی‌ها </span>
+                <span class="title_link"><?= $tree_footer_title ?> </span>
                 <ul>
-                    <li><a href="">تماس با ما </a></li>
-                    <li><a href="">درباره ما </a></li>
-                    <li><a href=""> حریم خصوصی </a></li>
-                    <li><a href=""> قوانین و مقررات </a></li>
+                    <?php wp_nav_menu([
+                        'theme_location' => 'footer3',
+                    ]); ?>
                 </ul>
             </div>
             <div class="mailchimp">
@@ -78,7 +63,8 @@ $footer_newsletter_shortcode = get_field("footer_newsletter_shortcode", "option"
                     <ul class="social_media">
                         <?php foreach ($social_media as $social) { ?>
                             <li>
-                                <a href="<?= @$social["link"]["url"] ?>" target="<?= @$social["link"]["target"] ?>">
+                                <a href="<?= @$social["link"]["url"] ?>" target="_blank"
+                                   rel="nofollow noopener noreferrer" title="<?= $social["link"]["title"] ?>">
                                     <i class="<?= @$social["icon"] ?>"></i>
                                 </a>
                             </li>
@@ -93,20 +79,24 @@ $footer_newsletter_shortcode = get_field("footer_newsletter_shortcode", "option"
                 <div class="box-des-footer">
                     <p class="des before active"><?= @$description_footer ?></p>
                     <span class="show-more">
-                        <span>بیشتر</span>
-                    <i class="icon-arrow-bottom"></i>
-                    </span>
+                    <span>بیشتر</span>
+                <i class="icon-arrow-bottom"></i>
+                </span>
                 </div>
             </div>
-            <ul class="list_documents">
-                <li><img src="<?= THEME_URL . "/assets/img/anjoman 1.jpg" ?>" alt=""></li>
-                <li><img src="<?= THEME_URL . "/assets/img/etehadieh 1.jpg" ?>" alt=""></li>
-                <li><img src="<?= THEME_URL . "/assets/img/tandis 1.jpg" ?>" alt=""></li>
-            </ul>
+            <?php if (isset($list_symbols) && !empty($list_symbols)) { ?>
+                <ul class="list_documents">
+                    <?php foreach ($list_symbols as $item) { ?>
+                        <li><?= @$item["symbol_script"] ?></li>
+                    <?php } ?>
+                </ul>
+            <?php } ?>
         </div>
     </footer>
 </div>
 
-<div class="copy_right">
-    <span>تمامی حقوق این سایت متعلق به شرکت ماز است.</span>
-</div>
+<?php if (isset($text_copy_right_footer) && !empty($text_copy_right_footer)) { ?>
+    <div class="copy_right">
+        <span><?= @$text_copy_right_footer ?></span>
+    </div>
+<?php } ?>

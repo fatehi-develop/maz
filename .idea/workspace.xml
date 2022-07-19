@@ -1,27 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2bc77510-36f3-4e19-9a17-9335dafef9d0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/img/wave-offer-section.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+    <list default="true" id="2bc77510-36f3-4e19-9a17-9335dafef9d0" name="Changes" comment="update res &amp; wp index">
+      <change afterPath="$PROJECT_DIR$/assets/img/Group 14978.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/img/back-offer.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/img/back-offer.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/css/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/home.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/css/home.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/home.css.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/css/home.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/home.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/res/content.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/res/content.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/css/styles.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/styles.css.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/css/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/styles.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/fonts/icomoon.eot" beforeDir="false" afterPath="$PROJECT_DIR$/assets/fonts/icomoon.eot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/fonts/icomoon.svg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/fonts/icomoon.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/fonts/icomoon.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/assets/fonts/icomoon.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/fonts/icomoon.woff" beforeDir="false" afterPath="$PROJECT_DIR$/assets/fonts/icomoon.woff" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/custom.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/custom.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/functions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/template-config.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/template-config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/websima-auth/websima-auth-init.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/websima-auth/websima-auth-init.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/template-parts/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/template-parts/footer.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/template-parts/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/template-parts/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-parts/home/item-post.php" beforeDir="false" afterPath="$PROJECT_DIR$/template-parts/home/item-post.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-parts/home/section-banner.php" beforeDir="false" afterPath="$PROJECT_DIR$/template-parts/home/section-banner.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-parts/home/section-best-sellers.php" beforeDir="false" afterPath="$PROJECT_DIR$/template-parts/home/section-best-sellers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-parts/home/section-brands.php" beforeDir="false" afterPath="$PROJECT_DIR$/template-parts/home/section-brands.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-parts/home/section-categories.php" beforeDir="false" afterPath="$PROJECT_DIR$/template-parts/home/section-categories.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/template-parts/home/section-products-offer.php" beforeDir="false" afterPath="$PROJECT_DIR$/template-parts/home/section-products-offer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-parts/home/section-products.php" beforeDir="false" afterPath="$PROJECT_DIR$/template-parts/home/section-products.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-parts/home/section-slider-header.php" beforeDir="false" afterPath="$PROJECT_DIR$/template-parts/home/section-hero.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/template-home.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/template-home.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +69,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/assets/img" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -86,7 +90,10 @@
       <option name="presentableId" value="Default" />
       <updated>1657944612504</updated>
       <workItem from="1657944614758" duration="29555000" />
-      <workItem from="1658040679084" duration="14739000" />
+      <workItem from="1658040679084" duration="14781000" />
+      <workItem from="1658125975501" duration="5875000" />
+      <workItem from="1658203965861" duration="19552000" />
+      <workItem from="1658229205978" duration="13580000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1657945062892</created>
@@ -102,7 +109,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658002512802</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="update res index">
+      <created>1658073030212</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1658073030212</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -122,7 +136,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit" />
     <MESSAGE value="update index" />
-    <option name="LAST_COMMIT_MESSAGE" value="update index" />
+    <MESSAGE value="update res index" />
+    <MESSAGE value="update res &amp; wp index" />
+    <option name="LAST_COMMIT_MESSAGE" value="update res &amp; wp index" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

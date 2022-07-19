@@ -13,6 +13,7 @@ function websima_menus(){
 		'category-menu'  => __( 'Category Menu', 'websima' ),
 		'footer1'  => __( 'Footer 1 Menu', 'websima' ),
 		'footer2'  => __( 'Footer 2 Menu', 'websima' ),
+		'footer3'  => __( 'Footer 3 Menu', 'websima' ),
 	) );
 }
 

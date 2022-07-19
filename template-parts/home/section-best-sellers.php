@@ -11,14 +11,14 @@ $query_best_sallers = new WP_Query($args_product_best_sallers);
 ?>
 <div>
     <div class="container container--1300">
-        <div class="list_best_sellers">
+        <div class="list_best_sellers mb-80">
             <div class="banner">
                 <img src="<?= THEME_URL . "/assets/img/Frame 15115.png" ?>" alt="">
                 <div class="navigation_slider best-saller">
-                     <span class="navigation_slider_arrow prev">
+                     <span class="best_sallers navigation_slider_arrow prev">
                        <i class="icon-Big-Arrows-Right"></i>
                     </span>
-                    <span class="navigation_slider_arrow next">
+                    <span class="best_sallers navigation_slider_arrow next">
                        <i class="icon-Big-Arrows-left"></i>
                     </span>
                 </div>

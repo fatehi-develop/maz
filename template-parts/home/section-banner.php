@@ -3,7 +3,7 @@ $items = get_sub_field('items');
 $layout = str_replace('.png', '', end(explode('/', get_sub_field('layout'))));
 ?>
 <?php if ($items) { ?>
-    <div class="section-banners m-120">
+    <div class="section-banners mb-80">
         <div class="container container--1300">
             <div class="row p30">
                 <?php

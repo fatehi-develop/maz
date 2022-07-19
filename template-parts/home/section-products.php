@@ -30,15 +30,17 @@ $active_product_slider_svg = get_sub_field("active_product_slider_svg");
             <div class="header-slider">
                 <span><?= @$product_slider_title ?></span>
                 <a href="<?= get_post_type_archive_link('product') ?>">مشاهده همه
-                    <i> > </i>
+                    <i class="icon-Big-Arrows-left"></i>
                 </a>
             </div>
         </div>
         <div class="owl-carousel swiper_category_product owl-custom-slider">
-            <?php while ($query_product->have_posts()) {
+            <?php
+
+            while ($query_product->have_posts()) {
                 $query_product->the_post();
                 ?>
-                <?php get_template_part("template-parts/home/item-post") ?>
+                <?php get_template_part("template-parts/home/item-post" , null ) ?>
             <?php }
             wp_reset_query();
             wp_reset_postdata();

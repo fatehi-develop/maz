@@ -569,7 +569,20 @@
         items: 1, margin: 30, rtl: true, loop: true, dots: false,
     })
     let slider_offer_day = $('.slider_offer_day').owlCarousel({
-        items: 1, margin: 30, rtl: true, dots: false, loop: true, mouseDrag: false, touchDrag: false
+        items: 1, margin: 30, rtl: true, dots: false, loop: true, mouseDrag: false, touchDrag: false, responsive: {
+            0: {
+                items: 1,
+            }, 400: {
+                items: 2,
+            }, 576: {
+                items: 2,
+            }, 768: {
+                items: 3,
+            }, 992: {
+                items: 1,
+            }
+
+        }
     })
     let swiper_category_product = $('.swiper_category_product').owlCarousel({
         items: 7.1, margin: 24, rtl: true, loop: true, dots: true, responsive: {
@@ -633,9 +646,9 @@
         }
     })
     let products_offer_slider = $('.products_offer_slider').owlCarousel({
-        items: 6, margin: 10, rtl: true, dots: false, loop: true, responsive: {
+        items: 6, margin: 15, rtl: true, dots: false, loop: true, responsive: {
             0: {
-                items: 1, margin: 10
+                items: 1, margin: 15
             }, 400: {
                 items: 2,
             }, 576: {
@@ -653,37 +666,45 @@
 
     })
 
-    $(".navigation_slider_arrow.next").click(function () {
-        let list_best_sellers = $(this).parents(".list_best_sellers")
-        console.log(list_best_sellers.length)
-        if (list_best_sellers.length) {
-            best_sallers_product.trigger('next.owl.carousel');
-        } else {
-            slider_header.trigger('next.owl.carousel');
-        }
+    $(".hero.navigation_slider_arrow.next").click(function () {
+        slider_header.trigger('next.owl.carousel')
     })
 
-    $(".navigation_slider_arrow.prev").click(function () {
-        let list_best_sellers = $(this).parents("list_best_sellers")
-        if (list_best_sellers.length) {
-            best_sallers_product.trigger('prev.owl.carousel');
-        }
-        slider_header.trigger('prev.owl.carousel');
+    $(".hero.navigation_slider_arrow.prev").click(function () {
+        slider_header.trigger('prev.owl.carousel')
     })
+
+    $(".offer.navigation_slider_arrow.next").click(function () {
+        products_offer_slider.trigger('next.owl.carousel')
+    })
+
+    $(".offer.navigation_slider_arrow.prev").click(function () {
+        products_offer_slider.trigger('prev.owl.carousel')
+    })
+
+    $(".best_sallers.navigation_slider_arrow.next").click(function () {
+        best_sallers_product.trigger('next.owl.carousel')
+    })
+
+    $(".best_sallers.navigation_slider_arrow.prev").click(function () {
+        best_sallers_product.trigger('prev.owl.carousel')
+    })
+
 
     $(".slider_offer_day").ready(function () {
+        let width_org = $(".timer")[0].offsetWidth
+        let sss = width_org * 0.05
 
         setInterval(function () {
             let width_timer = $(".timer")[0].offsetWidth
             $(".timer").css({"width": width_timer - 1})
             if (width_timer == 0) {
                 slider_offer_day.trigger('next.owl.carousel');
-                $(".timer").css({"width": 200})
+                $(".timer").css({"width": width_org})
             }
-        }, 15)
+        }, sss)
 
     })
-
 
     function get_time_format(get_time_expire) {
         let now = new Date().getTime();
@@ -739,7 +760,6 @@
             }
         })
     })
-
 
     $(".show-more").click(function () {
         let des = $(this).parents(".box-des-footer").find("p")
@@ -817,10 +837,25 @@
             ele.find('.tab-content  [data-tabc][data-parent="' + dataTabindex + '"]').hide();
             ele.find('.tab-title  [data-tab="' + tabCurrent + '"][data-parent="' + dataTabindex + '"]').addClass('active');
             ele.find('.tab-content  [data-tabc="' + tabCurrent + '"][data-parent="' + dataTabindex + '"]').fadeIn();
+
+
         });
     }
 
     tabInit();
+
+
+    $("body").on("mouseenter", ".box_products_offer .item-product", function (e) {
+        $(".products_offer .item-product").addClass("blur")
+        $(this).removeClass("blur")
+        $(this).addClass("scale")
+    });
+
+    $("body").on("mouseleave", ".box_products_offer .item-product", function (e) {
+        $(".products_offer .item-product").removeClass("blur")
+        $(this).removeClass("scale")
+    });
+
 
 }(jQuery));
 

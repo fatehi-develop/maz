@@ -163,13 +163,13 @@ function websima_auth_fullname(){
 function websima_auth_modal_btn(){
     if(!is_user_logged_in()){
         echo '<button type="button" class="button btn btn-primary websima-auth-modal-btn" data-toggle="modal" data-target="#websima-auth-modal">';
-            echo '<i class="icon"></i>';
+            echo '<i class="icon-profile"></i>';
             echo '<span class="label">ورود / عضویت</span>';
         echo '</button>';
     }else{
         $fullname = websima_auth_fullname();
         echo '<a class="button" href="'.get_permalink(wc_get_page_id('myaccount')).'">';
-            echo 'سلام ';
+        echo '<i class="icon-profile"></i>';
             if($fullname){ echo esc_html($fullname); }
         echo '</a>';
         echo '<a class="exit-account" href="'.wp_logout_url(get_permalink(wc_get_page_id('myaccount'))).'">';

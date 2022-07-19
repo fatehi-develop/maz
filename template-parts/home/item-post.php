@@ -49,7 +49,7 @@ $out_of_stock_product = $product->get_availability()["class"] == "out-of-stock";
         <?php } ?>
     </div>
 
-    <?php if ($status_offer) { ?>
+    <?php if (isset($args["type"]) && $args["type"] == "offer" && $status_offer) { ?>
         <div class="timer_post">
             <div class="timer_post__line">
                 <span></span>

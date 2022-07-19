@@ -1,6 +1,3 @@
-.slider_brands_index {
-  margin-bottom: 80px;
-}
 .slider_brands_index .owl-stage-outer {
   padding: 5px 15px 30px;
   margin: 0 -15px;
@@ -25,17 +22,15 @@
   transform: translateY(-7px);
 }
 
-.products_offer {
-  margin-bottom: 100px;
-}
 .products_offer .tab-content {
   padding-bottom: 82px;
 }
 
 .header_products_offer {
   display: flex;
-  align-items: center;
   margin-bottom: 30px;
+  align-items: baseline;
+  height: 40px;
 }
 .header_products_offer__title {
   margin-left: 24px;
@@ -72,6 +67,10 @@
 .header_products_offer__link i {
   font-size: 10px;
 }
+.header_products_offer__link:hover {
+  color: #98C200;
+  gap: 16px;
+}
 .header_products_offer .tab-title {
   display: flex;
   align-items: center;
@@ -81,6 +80,12 @@
   font-size: 1.2307692308em;
   color: #464646;
   cursor: pointer;
+  overflow: scroll;
+  padding-bottom: 10px;
+}
+.header_products_offer .tab-title .item {
+  white-space: nowrap;
+  transition: all 0.3s;
 }
 .header_products_offer .tab-title .item.active {
   font-weight: 600;
@@ -89,8 +94,8 @@
 }
 
 .products_offer_slider .owl-stage-outer {
-  padding: 10px 5px;
-  margin: 0 -5px;
+  padding: 20px 10px;
+  margin: 0 -10px;
 }
 
 .box_products_offer {
@@ -99,11 +104,12 @@
 .box_products_offer::before {
   position: absolute;
   content: "";
+  background-image: url("../img/back-offer.png");
   bottom: 0;
   left: 0;
   right: 0;
-  background: #98C200;
   height: 350px;
+  background-size: cover;
 }
 
 .content_products_offer {
@@ -136,7 +142,6 @@
 
 .box_slider_header {
   position: relative;
-  margin-bottom: 80px;
 }
 .box_slider_header:before {
   position: absolute;
@@ -185,12 +190,13 @@
   font-size: 0.9230769231em;
   display: flex;
   color: #FF3E14;
+  white-space: nowrap;
 }
 .box_offer_day .offer_day_head .timer {
   position: relative;
   background: #EBEBEB;
   border-radius: 6px;
-  width: 200px;
+  width: 70%;
   height: 4px;
 }
 .box_offer_day .offer_day_head .timer .line {
@@ -218,6 +224,7 @@
   display: block;
   margin: 0 auto;
   padding-top: 4px;
+  object-fit: contain;
 }
 .box_offer_day .slider_offer_day .item_slider_offer_day .img:before {
   position: absolute;
@@ -244,7 +251,6 @@
   column-gap: 88px;
   row-gap: 20px;
   flex-wrap: wrap;
-  margin-bottom: 120px;
 }
 
 .item_categoris {
@@ -263,19 +269,6 @@
 .item_categoris__img img {
   display: block;
   margin: auto auto;
-}
-.item_categoris__img::before {
-  position: absolute;
-  content: "";
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 130px;
-  background: #FFD8EB;
-  border-radius: 115px;
-  z-index: -1;
-  transition: all 0.3s;
 }
 .item_categoris__title {
   font-weight: 500;
@@ -301,7 +294,6 @@
   display: flex;
   align-items: center;
   gap: 25px;
-  margin-bottom: 100px;
 }
 .list_best_sellers .banner {
   width: 530px;
@@ -358,6 +350,11 @@
   color: #DEDEDE;
   cursor: pointer;
   line-height: 1;
+  transition: all 0.5s;
+}
+.navigation_slider .navigation_slider_arrow:hover {
+  box-shadow: 0px 9px 7px -3px rgba(185, 185, 185, 0.3);
+  color: #5201A8;
 }
 .navigation_slider.best-saller {
   bottom: 8px;

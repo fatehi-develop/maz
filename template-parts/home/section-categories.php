@@ -1,78 +1,19 @@
+<?php
+$list_categories = get_sub_field("list_categories");
+?>
+<?php if (isset($list_categories) && !empty($list_categories)){ ?>
 <div>
     <div class="container container--1300">
-        <div class="list_categoris">
+        <div class="list_categoris mb-80">
+            <?php foreach ($list_categories as $item){ ?>
             <div class="item_categoris">
-                <div class="item_categoris__img" data>
-                    <img src="<?= THEME_URL . "/assets/img/catgories (1).png" ?>" alt="">
-                </div>
-                <span class="item_categoris__title pf-1">کتاب‌های علوم انسانی</span>
+                <a href="<?= get_term_link($item["cat"]) ?>" class="item_categoris__img">
+                    <img src="<?= @$item["pic"]["url"] ?>" alt="">
+                </a>
+                <a href="<?= get_term_link($item["cat"]) ?>" class="item_categoris__title pf-1"><?= @$item["title"] ?></a>
             </div>
-            <div class="item_categoris">
-                <div class="item_categoris__img">
-                    <img src="<?= THEME_URL . "/assets/img/catgories (2).png" ?>" alt="">
-                </div>
-                <span class="item_categoris__title pf-1">روانشناسی</span>
-            </div>
-            <div class="item_categoris">
-                <div class="item_categoris__img">
-                    <img src="<?= THEME_URL . "/assets/img/catgories (3).png" ?>" alt="">
-                </div>
-                <span class="item_categoris__title pf-1">کتاب‌های دانشگاهی</span>
-            </div>
-            <div class="item_categoris">
-                <div class="item_categoris__img">
-                    <img src="<?= THEME_URL . "/assets/img/catgories (4).png" ?>" alt="">
-                </div>
-                <span class="item_categoris__title pf-1">رمان بزرگسال  </span>
-            </div>
-            <div class="item_categoris">
-                <div class="item_categoris__img">
-                    <img src="<?= THEME_URL . "/assets/img/catgories (5).png" ?>" alt="">
-                </div>
-                <span class="item_categoris__title pf-1">کتاب‌های زبان</span>
-            </div>
-            <div class="item_categoris">
-                <div class="item_categoris__img">
-                    <img src="<?= THEME_URL . "/assets/img/catgories (1).png" ?>" alt="">
-                </div>
-                <span class="item_categoris__title pf-1">کتاب‌های علوم انسانی</span>
-            </div>
-            <div class="item_categoris">
-                <div class="item_categoris__img">
-                    <img src="<?= THEME_URL . "/assets/img/catgories (2).png" ?>" alt="">
-                </div>
-                <span class="item_categoris__title pf-1">روانشناسی</span>
-            </div>
-            <div class="item_categoris">
-                <div class="item_categoris__img">
-                    <img src="<?= THEME_URL . "/assets/img/catgories (3).png" ?>" alt="">
-                </div>
-                <span class="item_categoris__title pf-1">کتاب‌های دانشگاهی</span>
-            </div>
-            <div class="item_categoris">
-                <div class="item_categoris__img">
-                    <img src="<?= THEME_URL . "/assets/img/catgories (4).png" ?>" alt="">
-                </div>
-                <span class="item_categoris__title pf-1">رمان بزرگسال  </span>
-            </div>
-            <div class="item_categoris">
-                <div class="item_categoris__img">
-                    <img src="<?= THEME_URL . "/assets/img/catgories (5).png" ?>" alt="">
-                </div>
-                <span class="item_categoris__title pf-1">کتاب‌های زبان</span>
-            </div>
-            <div class="item_categoris">
-                <div class="item_categoris__img" data>
-                    <img src="<?= THEME_URL . "/assets/img/catgories (1).png" ?>" alt="">
-                </div>
-                <span class="item_categoris__title pf-1">کتاب‌های علوم انسانی</span>
-            </div>
-            <div class="item_categoris">
-                <div class="item_categoris__img">
-                    <img src="<?= THEME_URL . "/assets/img/catgories (2).png" ?>" alt="">
-                </div>
-                <span class="item_categoris__title pf-1">روانشناسی</span>
-            </div>
+        <?php } ?>
         </div>
     </div>
 </div>
+<?php }  ?>

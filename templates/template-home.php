@@ -1,7 +1,6 @@
 <?php
 /* template name: Home */
 get_header();
-get_template_part("template-parts/home/section-slider-header")
 ?>
 <?php
 $layouts = array('best-sellers' , 'feature', 'categories', 'products', 'counter', 'content', 'blog', 'banner', 'brands', 'faq', 'cta', 'testimonial', 'hero', 'teams' , 'products-offer');
