@@ -64,7 +64,7 @@ $px30: 2.3076923076923075em;
   display: flex;
   margin-bottom: 30px;
   align-items: baseline;
-  height: 40px;
+  min-height: 40px;
 
   &__title {
     margin-left: 24px;
@@ -178,7 +178,7 @@ $px30: 2.3076923076923075em;
   .item-banner {
     display: block;
     overflow: hidden;
-    border-radius: 10px;
+    border-radius: 24px;
 
     img {
       width: 100%;
@@ -320,7 +320,7 @@ $px30: 2.3076923076923075em;
         font-size: $px16;
         color: #253343;
         margin-bottom: 10px;
-        max-width: 200px;
+        line-height: 1.7em;
       }
 
     }
@@ -346,7 +346,8 @@ $px30: 2.3076923076923075em;
   gap: 22px;
   cursor: pointer;
   height: 200px;
-
+  margin: 0 auto;
+  
   &__img {
     position: relative;
     transition: all 0.3s;
@@ -402,9 +403,15 @@ $px30: 2.3076923076923075em;
 
 
 //list best sellers
+.box_list_best_sellers {
+  .header-slider {
+    display: none;
+  }
+}
+
 .list_best_sellers {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   gap: 25px;
 
   .banner {
@@ -415,7 +422,10 @@ $px30: 2.3076923076923075em;
     overflow: hidden;
 
     img {
-
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     &:before {
@@ -438,6 +448,7 @@ $px30: 2.3076923076923075em;
       .owl-stage-outer {
         width: 100%;
         padding: 6px 8px;
+        margin: 0 -8px;
       }
     }
 
@@ -452,6 +463,53 @@ $px30: 2.3076923076923075em;
       z-index: 99;
     }
   }
+
+
+  .box-des {
+    display: none;
+
+    .title {
+      font-weight: 600;
+      font-size: $px24;
+      color: #FFFFFF;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .des {
+      font-weight: 400;
+      font-size: $px16;
+      color: #FFFFFF;
+      text-align: center;
+      line-height: 1.7em;
+      margin-bottom: 33px;
+    }
+
+    .link {
+      font-weight: 500;
+      font-size: $px14;
+      text-align: center;
+      color: #EA3174;
+      display: flex;
+      gap: 12px;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 2px 2px 7px rgba(88, 88, 88, 0.2);
+      border-radius: 8px;
+      min-width: 106px;
+      min-height: 28px;
+
+      i {
+        font-size: 10px;
+      }
+
+      &:hover {
+        gap: 15px;
+      }
+    }
+  }
 }
 
 
@@ -459,7 +517,7 @@ $px30: 2.3076923076923075em;
 .navigation_slider {
   position: absolute;
   bottom: 14px;
-  right: 50px;
+  right: 40px;
   z-index: 99;
   display: flex;
   gap: 10px;
@@ -494,7 +552,7 @@ $px30: 2.3076923076923075em;
     transform: translate(50%);
   }
 
-  &.hero{
+  &.hero {
 
   }
 

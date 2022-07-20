@@ -40,10 +40,12 @@ function websima_newsletter_form()
         <!--        <div class="form-row">-->
         <!--            <div class="form-group col-12 col-md-12">-->
         <!--                <label class="text-muted">ایمیل</label>-->
-        <input type="email" name="email" id="email" class="form-control" placeholder="ایمیل خود را وارد کنید">
+        <div>
+            <input type="email" name="email" id="email" class="form-control" placeholder="ایمیل شما">
+        </div>
+        <button type="submit" class="btn btn-primary"> ثبت ایمیل</button>
         <!--            </div>-->
         <!--        </div>-->
-        <button type="submit" class="btn btn-primary"> ثبت ایمیل</button>
         <?php wp_nonce_field('websima_newsletter_nonce', 'websima_newsletter_nonce_field'); ?>
         <input type="hidden" name="action" value="websima_newsletter_submission"/>
     </form>

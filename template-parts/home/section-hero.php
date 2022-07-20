@@ -22,7 +22,7 @@ $args_product = array(
 $query_product = new WP_Query($args_product);
 
 ?>
-<div>
+<section>
     <div class="container container--1300">
         <div class="row">
             <?php if ($header_slider) { ?>
@@ -54,15 +54,17 @@ $query_product = new WP_Query($args_product);
                         <div class="owl-carousel slider_offer_day">
                             <?php while ($query_product->have_posts()) { $query_product->the_post();
                                 global $product;
+                                $discount_percentage = (add_percentage_to_sale_badge($product) != 100) ? add_percentage_to_sale_badge($product) : null;
                                 ?>
-                                <div class="item">
+                                <article class="item">
                                     <div class="item_slider_offer_day">
-                                        <div class="img">
+                                        <a href="<?= get_the_permalink() ?>" class="img">
                                             <?= get_the_post_thumbnail(); ?>
-                                        </div>
-                                        <h2 class="pf-2"><?= get_the_title() ?></h2>
+                                        </a>
+                                        <h2 class="pf-2"><a href="<?= get_the_permalink() ?>"><?= get_the_title() ?></a></h2>
                                         <div class="box_price">
-                                            <span class="box_price__percent">٪۱۵</span>
+                                            <?php if ($discount_percentage) { ?><span class="box_price__percent">
+                                                ٪<?= convertEnglishNumbersToPersian($discount_percentage) ?></span><?php } ?>
                                             <div class="box_price__amount">
                                                 <ins class="price-main"><?= convertEnglishNumbersToPersian(number_format($product->get_regular_price())); ?></ins>
                                                 <span class="price-offer">
@@ -72,13 +74,12 @@ $query_product = new WP_Query($args_product);
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </article>
                             <?php } ?>
                         </div>
                     </div>
-
                 </div>
             <?php } ?>
         </div>
     </div>
-</div>
+</section>

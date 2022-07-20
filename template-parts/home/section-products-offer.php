@@ -22,7 +22,7 @@ $selection_products = get_sub_field("products_list");
         )
     );
     ?>
-    <div class="box_products_offer mb-100">
+    <section class="box_products_offer mb-100">
         <div class="container container--1300">
             <div class="products_offer" data-tabindex="status">
                 <div data-tabindex="status">
@@ -111,5 +111,5 @@ $selection_products = get_sub_field("products_list");
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 <?php } ?>

@@ -587,13 +587,15 @@
     let swiper_category_product = $('.swiper_category_product').owlCarousel({
         items: 7.1, margin: 24, rtl: true, loop: true, dots: true, responsive: {
             0: {
-                items: 1,
-            }, 350: {
-                items: 2,
+                items: 1, margin: 10
+            }, 250: {
+                items: 1.5, margin: 10
+            }, 320: {
+                items: 2, margin: 10
             }, 576: {
-                items: 3,
+                items: 3, margin: 10
             }, 768: {
-                items: 4,
+                items: 4, margin: 10
             }, 992: {
                 items: 5,
             }, 1200: {
@@ -631,12 +633,14 @@
         items: 3.4, margin: 25, rtl: true, dots: false, responsive: {
             0: {
                 items: 1, margin: 10
-            }, 400: {
-                items: 2,
-            }, 576: {
-                items: 2,
+            }, 250: {
+                items: 1.5, margin: 10
+            }, 320: {
+                items: 2, margin: 10
+            }, 459: {
+                items: 1, margin: 10
             }, 768: {
-                items: 3,
+                items: 2, margin: 10
             }, 992: {
                 items: 2.4,
             }, 1300: {
@@ -665,6 +669,38 @@
         }
 
     })
+
+    function postsCarousel() {
+        var checkWidth = $(window).width();
+        var owlPost = $(".category_slider");
+        if (checkWidth > 992) {
+            if (typeof owlPost.data('owl.carousel') != 'undefined') {
+                owlPost.data('owl.carousel').destroy();
+            }
+            owlPost.removeClass('owl-carousel');
+        } else if (checkWidth < 992) {
+            owlPost.addClass('owl-carousel');
+            owlPost.owlCarousel({
+                items: 4, margin: 15, rtl: true, dots: false,
+                responsive: {
+                    0: {
+                        items: 2, margin: 10
+                    }, 415: {
+                        items: 3, margin: 10
+                    }, 517: {
+                        items: 3, margin: 10
+                    }, 768: {
+                        items: 4, margin: 10
+                    }
+
+                }
+            });
+        }
+    }
+
+    postsCarousel();
+    $(window).resize(postsCarousel);
+
 
     $(".hero.navigation_slider_arrow.next").click(function () {
         slider_header.trigger('next.owl.carousel')
@@ -696,11 +732,11 @@
         let sss = width_org * 0.05
 
         setInterval(function () {
-            let width_timer = $(".timer")[0].offsetWidth
-            $(".timer").css({"width": width_timer - 1})
+            let width_timer = $(".timer .line")[0].offsetWidth
+            $(".timer .line").css({"width": width_timer - 1})
             if (width_timer == 0) {
                 slider_offer_day.trigger('next.owl.carousel');
-                $(".timer").css({"width": width_org})
+                $(".timer .line").css({"width": width_org})
             }
         }, sss)
 

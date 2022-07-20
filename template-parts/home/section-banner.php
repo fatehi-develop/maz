@@ -3,7 +3,7 @@ $items = get_sub_field('items');
 $layout = str_replace('.png', '', end(explode('/', get_sub_field('layout'))));
 ?>
 <?php if ($items) { ?>
-    <div class="section-banners mb-80">
+    <section class="section-banners mb-80">
         <div class="container container--1300">
             <div class="row p30">
                 <?php
@@ -14,7 +14,7 @@ $layout = str_replace('.png', '', end(explode('/', get_sub_field('layout'))));
                             foreach ($items as $item) {
                                 $i++;
                                 $col = 'col-12 mb-4';
-                                websima_banner_show($item,$col);
+                                websima_banner_show($item, $col);
                             }
                             break;
                         case 'half-half' :
@@ -22,7 +22,7 @@ $layout = str_replace('.png', '', end(explode('/', get_sub_field('layout'))));
                             foreach ($items as $item) {
                                 $i++;
                                 $col = 'col-sm-6 mb-4';
-                                websima_banner_show($item,$col);
+                                websima_banner_show($item, $col);
                                 if ($i == 4) break;
                             }
                             break;
@@ -31,7 +31,7 @@ $layout = str_replace('.png', '', end(explode('/', get_sub_field('layout'))));
                             foreach ($items as $item) {
                                 $i++;
                                 $col = 'col-sm-4 mb-4';
-                                websima_banner_show($item,$col);
+                                websima_banner_show($item, $col);
                                 if ($i == 3) break;
                             }
                             break;
@@ -41,7 +41,7 @@ $layout = str_replace('.png', '', end(explode('/', get_sub_field('layout'))));
                                 $i++;
                                 $col = 'col-sm-3 mb-4';
                                 if ($i == 2 || $i == 5) $col = 'col-sm-6 mb-4';
-                                websima_banner_show($item,$col);
+                                websima_banner_show($item, $col);
                                 if ($i == 3) break;
                             }
                             break;
@@ -52,7 +52,7 @@ $layout = str_replace('.png', '', end(explode('/', get_sub_field('layout'))));
                                 $col = 'col-12 mb-4';
                                 if ($i == 1 || $i == 4) $col = 'col-sm-8 mb-4';
                                 if ($i == 2 || $i == 3) $col = 'col-sm-4 mb-4';
-                                websima_banner_show($item,$col);
+                                websima_banner_show($item, $col);
                                 if ($i == 4) break;
                             }
                             break;
@@ -62,7 +62,7 @@ $layout = str_replace('.png', '', end(explode('/', get_sub_field('layout'))));
                                 $i++;
                                 $col = 'col-12 mb-4';
                                 if ($i == 1 || $i == 2) $col = 'col-sm-6 mb-4';
-                                websima_banner_show($item,$col);
+                                websima_banner_show($item, $col);
                                 if ($i == 3) break;
                             }
                             break;
@@ -72,7 +72,7 @@ $layout = str_replace('.png', '', end(explode('/', get_sub_field('layout'))));
                                 $i++;
                                 $col = 'col-12 mb-4';
                                 if ($i == 3 || $i == 2) $col = 'col-sm-6 mb-4';
-                                websima_banner_show($item,$col);
+                                websima_banner_show($item, $col);
                                 if ($i == 3) break;
                             }
                             break;
@@ -82,7 +82,7 @@ $layout = str_replace('.png', '', end(explode('/', get_sub_field('layout'))));
                                 $i++;
                                 $col = 'col-sm-4 mb-4';
                                 if ($i == 1 || $i == 2) $col = 'col-sm-6 mb-4';
-                                websima_banner_show($item,$col);
+                                websima_banner_show($item, $col);
                             }
                             break;
                         case 'four-v-1' :
@@ -121,7 +121,7 @@ $layout = str_replace('.png', '', end(explode('/', get_sub_field('layout'))));
                             foreach ($items as $item) {
                                 $i++;
                                 $col = 'col-sm-4 mb-4';
-                                websima_banner_show($item,$col);
+                                websima_banner_show($item, $col);
                                 if ($i == 1) break;
                             }
                             $i = 0;
@@ -131,7 +131,7 @@ $layout = str_replace('.png', '', end(explode('/', get_sub_field('layout'))));
                                 $i++;
                                 if ($i == 1) continue;
                                 $col = 'col-sm-6 mb-4';
-                                websima_banner_show($item,$col);
+                                websima_banner_show($item, $col);
                                 if ($i == 5) break;
                             }
                             echo "</div>";
@@ -144,14 +144,14 @@ $layout = str_replace('.png', '', end(explode('/', get_sub_field('layout'))));
                                 $col = 'col-12 mb-4';
                                 if ($i == 2) $col = 'col-sm-6 mb-4';
                                 if ($i == 3 || $i == 4) $col = 'col-sm-3 mb-4';
-                                websima_banner_show($item,$col);
+                                websima_banner_show($item, $col);
                                 if ($i == 4) break;
                             }
                             break;
                         case 'tow-one' :
                             $i = 0;
                             echo "<div class='col-sm-5'>";
-                            echo "<div class='row p30'>";
+                            echo "<div class='row p24'>";
                             foreach ($items as $item) {
                                 $i++;
                                 $col = 'col-12';
@@ -170,10 +170,45 @@ $layout = str_replace('.png', '', end(explode('/', get_sub_field('layout'))));
                             }
                             break;
 
+
+                        case 'one-two' :
+                            $i = 0;
+                            echo "<div class='row p24'>";
+
+                            foreach ($items as $item) {
+                                $i++;
+                                if ($i == 3) {
+                                    $col = 'col-12 col-md-6';
+                                    websima_banner_show($item, $col);
+                                    break;
+                                }
+                                $col = 'col-6 col-md-3';
+                                websima_banner_show($item, $col);
+                                if ($i == 3) break;
+                            }
+
+                            $i = 0;
+                            foreach ($items as $item) {
+                                $i++;
+                                if ($i < 4) {
+                                    continue;
+                                }
+                                    if ($i == 4) {
+                                        $col = 'col-12 col-md-6';
+                                        websima_banner_show($item, $col);
+                                        continue;
+                                    }
+                                    $col = 'col-6 col-md-3';
+                                    websima_banner_show($item, $col);
+                                    if ($i == 6) break;
+                                }
+                            echo "</div>";
+                            break;
                     }
-                } ?>
+                }
+                ?>
             </div>
         </div>
-    </div>
+    </section>
 
 <?php } ?>

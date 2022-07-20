@@ -2,7 +2,7 @@
 $list_brand_index = get_sub_field("list_brand_index", "option");
 ?>
 <?php if ($list_brand_index) { ?>
-    <div class="box_slider_brands_index mb-80">
+    <section class="box_slider_brands_index mb-80">
         <div class="container container--1300">
             <div class="owl-carousel slider_brands_index owl-custom-slider">
                 <?php foreach ($list_brand_index as $brand) { ?>
@@ -19,7 +19,7 @@ $list_brand_index = get_sub_field("list_brand_index", "option");
                 <?php } ?>
             </div>
         </div>
-    </div>
+    </section>
 <?php } ?>
 
 

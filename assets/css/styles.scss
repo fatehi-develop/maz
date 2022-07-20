@@ -84,15 +84,15 @@ body {
   margin-bottom: 100px;
 }
 
-.p30 {
-  margin-right: -15px;
-  margin-left: -15px;
+.p24 {
+  margin-right: -5px !important;
+  margin-left: -5px !important;
   align-items: flex-start;
 
   > [class*=col-] {
-    padding-left: 15px;
-    padding-right: 15px;
-    margin-bottom: 25px;
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+    margin-bottom: 24px;
 
     &:last-child {
       margin-bottom: unset;
@@ -109,7 +109,6 @@ body {
     padding-right: 45px;
   }
 }
-
 
 a {
   color: unset;
@@ -195,7 +194,7 @@ footer {
 
     .title_link {
       font-weight: 600;
-      font-size: $px14;
+      font-size: $px15;
       line-height: 16px;
       color: #000000;
       display: block;
@@ -210,7 +209,7 @@ footer {
 
         li {
           font-weight: 500;
-          font-size: $px13;
+          font-size: $px14;
           color: #445A74;
 
           &:hover {
@@ -236,19 +235,29 @@ footer {
 
       p {
         font-weight: 500;
-        font-size: $px13;
+        font-size: $px14;
         color: #7F7D7E;
       }
 
       form {
         display: flex;
-        align-items: stretch;
+        align-items: baseline;
         gap: 15px;
+
+        div {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+        }
 
         input {
           border: 1px solid #DEDEDE !important;
           border-radius: 8px !important;
-          padding: 11px 15px !important;
+          padding: 9px 15px 9px 31px !important;
+
+          &::placeholder {
+            color: #DEDEDE;
+          }
         }
 
         button {
@@ -258,7 +267,9 @@ footer {
           font-weight: 600;
           font-size: $px12;
           font-family: inherit;
-          padding: 10px 13px;
+          //padding: 10px 13px;
+          width: 76px;
+          height: 36px;
         }
       }
 
@@ -480,8 +491,10 @@ footer {
     align-items: center;
     background: #E9EDF5;
     border-radius: 12px;
-    padding: 8px 14px 8px;
+    padding: 0 14px;
     transition: all 0.3s;
+    min-height: 38px;
+    min-width: 320px;
 
     input {
       background: unset;
@@ -490,6 +503,10 @@ footer {
       color: #7B93AF;
       padding-right: 32px;
       transition: all 0.3s;
+
+      &::placeholder {
+        color: #7B93AF;
+      }
     }
 
     i {
@@ -513,10 +530,7 @@ footer {
     }
 
     &:hover {
-      input {
-        padding-left: 37px;
-      }
-
+      min-width: 340px;
       button {
         color: #5201A8;
       }
@@ -577,7 +591,7 @@ footer {
           background: #FFFFFF;
           border-radius: 4px;
           font-weight: 500;
-          font-size: $px14;
+          font-size: $px13;
           color: #5201A8;
           padding: 5px 6px 2px;
           line-height: 1;
@@ -622,7 +636,6 @@ footer {
       ul {
         display: flex;
         align-items: center;
-        gap: 56px;
 
         li {
           font-weight: 400;
@@ -630,6 +643,16 @@ footer {
           text-align: center;
           color: #464646;
           transition: all 0.3s;
+
+          a {
+            padding: 10px 27px;
+          }
+
+          &:first-child {
+            a {
+              padding-right: 0;
+            }
+          }
 
           &:hover {
             color: #5201A8;
@@ -703,6 +726,10 @@ footer {
     }
 
     .price-offer {
+      display: flex;
+      gap: 5px;
+      align-items: center;
+
       ins {
         font-weight: 600;
         font-size: $px14;
@@ -821,6 +848,12 @@ footer {
   &.scale {
     transform: scale(1.09);
   }
+
+
+  &:hover {
+    box-shadow: 0px 0px 1px 1px #eee;
+    transform: translateY(-4px);
+  }
 }
 
 
@@ -836,6 +869,16 @@ footer {
 }
 
 @media screen and (max-width: 1199.98px) {
+  .feature-footer {
+    &__list {
+      gap: 10px;
+
+      li {
+        gap: 7px;
+        padding: 24px 6px 20px 8px;
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 991.98px) {
@@ -867,12 +910,36 @@ footer {
   }
 
   .list_best_sellers {
+    align-items: stretch;
+    gap: 10px;
+
     .banner {
-      display: none;
+      background: radial-gradient(97.69% 97.69% at 50.18% 12.69%, #EA3174 0%, #FFB6B6 100%);
+      padding: 80px 5px;
+      margin: 6px 0;
+
+      img {
+        display: none;
+      }
+
+      .box-des {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      &:before {
+        display: none;
+      }
     }
 
     .list_product {
-      width: 100%;
+      width: 65%;
+
+      &::before {
+        display: none;
+      }
     }
   }
 
@@ -883,11 +950,11 @@ footer {
   }
 
   .mb-80 {
-    margin-bottom: 40px;
+    margin-bottom: 30px;
   }
 
   .mb-100 {
-    margin-bottom: 40px;
+    margin-bottom: 30px;
   }
 
   .swiper_category_product {
@@ -897,7 +964,7 @@ footer {
   .header_products_offer {
     flex-wrap: wrap;
     gap: 20px;
-    height: 100px;
+    min-height: 100px;
     margin-bottom: 0;
 
     .tab-title {
@@ -950,7 +1017,8 @@ footer {
       }
 
       .search {
-        display: block;
+        display: flex;
+        min-width: max-content;
       }
 
       .call_us {
@@ -995,6 +1063,17 @@ footer {
     }
   }
 
+  .navigation_slider {
+    &.best-saller {
+      bottom: 12px;
+      right: 50%;
+      transform: translate(50%);
+    }
+  }
+
+  .box-header {
+    margin-bottom: 15px;
+  }
 
 }
 
@@ -1063,8 +1142,11 @@ footer {
     }
   }
 
-  .list_best_sellers{
-    .list_product{
+  .list_best_sellers {
+
+    .list_product {
+      width: 53%;
+
       &::before {
         display: none;
       }
@@ -1080,10 +1162,24 @@ footer {
   .header_products_offer {
     &__title {
       margin-left: unset;
-      font-size: $px13;
+
+      .title {
+        font-size: $px19;
+      }
     }
+
     &__link {
       font-size: $px14;
+    }
+
+    .tab-title {
+      .item {
+        font-size: $px15;
+
+        &.active {
+          font-size: $px15;
+        }
+      }
     }
   }
   .header {
@@ -1102,24 +1198,23 @@ footer {
   }
 }
 
-@media screen and (max-width: 515.98px) {
-  .list_categoris {
-    column-gap: 23px;
+@media screen and (max-width: 459.98px) {
+  .list_best_sellers {
 
-    .item_categoris {
-      width: 46%;
+    .banner {
+      display: none;
+    }
+
+    .list_product {
+      width: 100%;
     }
   }
-}
-
-@media screen and (max-width: 319.98px) {
-  .list_categoris {
-    column-gap: 25px;
-
-    .item_categoris {
-      width: 45%;
+  .box_list_best_sellers {
+    .header-slider {
+      display: flex;
     }
   }
+
 }
 
 @media screen and (max-width: 270.98px) {

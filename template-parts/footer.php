@@ -12,7 +12,7 @@ $tree_footer_title = get_field("tree_footer_title", "option");
 
 ?>
 
-<div class="box-featured-footer">
+<section class="box-featured-footer">
     <div class="container container--1300">
         <div class="feature-footer">
             <?php if (isset($site_feature_items) && !empty($site_feature_items)) { ?>
@@ -30,9 +30,9 @@ $tree_footer_title = get_field("tree_footer_title", "option");
             <?php } ?>
         </div>
     </div>
-</div>
+</section>
 
-<div class="container container--1300">
+<footer class="container container--1300">
     <footer>
         <div class="footer-top">
             <div class="list_link">
@@ -93,7 +93,7 @@ $tree_footer_title = get_field("tree_footer_title", "option");
             <?php } ?>
         </div>
     </footer>
-</div>
+</footer>
 
 <?php if (isset($text_copy_right_footer) && !empty($text_copy_right_footer)) { ?>
     <div class="copy_right">
