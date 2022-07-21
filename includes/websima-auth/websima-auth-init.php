@@ -170,7 +170,9 @@ function websima_auth_modal_btn(){
         $fullname = websima_auth_fullname();
         echo '<a class="button" href="'.get_permalink(wc_get_page_id('myaccount')).'">';
         echo '<i class="icon-profile"></i>';
-            if($fullname){ echo esc_html($fullname); }
+        echo '<span class="label"> سلام ';
+        if($fullname){ echo esc_html($fullname); }
+        echo '</span>';
         echo '</a>';
         echo '<a class="exit-account" href="'.wp_logout_url(get_permalink(wc_get_page_id('myaccount'))).'">';
             echo 'خروج';

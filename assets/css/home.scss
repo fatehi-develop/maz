@@ -166,9 +166,9 @@ $px30: 2.3076923076923075em;
   &::before {
     position: absolute;
     content: url("../img/wave-offer-section.svg");
-    bottom: -7px;
+    bottom: -8px;
     right: 50%;
-    width: 285px;
+    width: 287px;
     transform: translate(50%);
   }
 }
@@ -179,6 +179,7 @@ $px30: 2.3076923076923075em;
     display: block;
     overflow: hidden;
     border-radius: 24px;
+    position: relative;
 
     img {
       width: 100%;
@@ -190,9 +191,30 @@ $px30: 2.3076923076923075em;
     }
 
     &:hover {
+
+      &:before{
+        animation: shine 1.25s;
+      }
+
       img {
         transform: scale(1.03);
       }
+    }
+
+    &:before{
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -105%;
+      z-index: 2;
+      display: block;
+      width: 50%;
+      height: 100%;
+      background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255, 233, 233, 0.3) 100%);
+      background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255, 232, 232, 0.3) 100%);
+      -webkit-transform: skewX(-25deg);
+      transform: skewX(-25deg);
+      pointer-events: none;
     }
   }
 }
@@ -244,6 +266,7 @@ $px30: 2.3076923076923075em;
   border-radius: 12px;
   overflow: hidden;
   padding: 16px;
+  height: 100%;
 
 
   .offer_day_head {
@@ -291,6 +314,7 @@ $px30: 2.3076923076923075em;
         position: relative;
         z-index: 99;
         margin-bottom: 10px;
+        display: block;
 
         img {
           width: 133px;
@@ -321,6 +345,7 @@ $px30: 2.3076923076923075em;
         color: #253343;
         margin-bottom: 10px;
         line-height: 1.7em;
+        max-height: 54px;
       }
 
     }
@@ -347,7 +372,7 @@ $px30: 2.3076923076923075em;
   cursor: pointer;
   height: 200px;
   margin: 0 auto;
-  
+
   &__img {
     position: relative;
     transition: all 0.3s;
@@ -556,4 +581,17 @@ $px30: 2.3076923076923075em;
 
   }
 
+}
+
+
+
+@-webkit-keyframes shine {
+  100% {
+    left: 125%;
+  }
+}
+@keyframes shine {
+  100% {
+    left: 125%;
+  }
 }

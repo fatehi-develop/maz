@@ -26,7 +26,7 @@ $out_of_stock_product = $product->get_availability()["class"] == "out-of-stock";
         <h2 class="pf-2"><a href="<?= get_the_permalink() ?>"><?= get_the_title() ?></a></h2>
     </div>
 
-    <div class="box_price <?= $status_offer ? "m-12" : '' ?>">
+    <div class="box_price <?= ($args["type"] && $args["type"] == "offer") ? "m-12" : '' ?>">
         <?php if (!$out_of_stock_product) { ?>
             <?php if ($discount_percentage) { ?><span class="box_price__percent">
                 ٪<?= convertEnglishNumbersToPersian($discount_percentage) ?></span><?php } ?>

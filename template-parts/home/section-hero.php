@@ -45,8 +45,8 @@ $query_product = new WP_Query($args_product);
                 </div>
             <?php } ?>
             <?php if ($query_product->have_posts()) { ?>
-                <div class="col-12 col-lg-3">
-                    <div class="box_offer_day mb-80">
+                <div class="col-12 col-lg-3 mb-80">
+                    <div class="box_offer_day ">
                         <div class="offer_day_head">
                             <span>پیشنهاد روز</span>
                             <div class="timer"><span class="line"></span></div>

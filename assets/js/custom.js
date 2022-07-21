@@ -604,6 +604,8 @@
                 items: 6.7,
             }, 1500: {
                 items: 7.1,
+            }, 1700: {
+                items: 8.1,
             }
 
         }
@@ -729,8 +731,7 @@
 
     $(".slider_offer_day").ready(function () {
         let width_org = $(".timer")[0].offsetWidth
-        let sss = width_org * 0.05
-
+        let calc_time = width_org * 0.05
         setInterval(function () {
             let width_timer = $(".timer .line")[0].offsetWidth
             $(".timer .line").css({"width": width_timer - 1})
@@ -738,8 +739,7 @@
                 slider_offer_day.trigger('next.owl.carousel');
                 $(".timer .line").css({"width": width_org})
             }
-        }, sss)
-
+        }, calc_time)
     })
 
     function get_time_format(get_time_expire) {
@@ -775,11 +775,6 @@
                 $(item).find(".timer_post__day .hours").html(info.hours)
                 $(item).find(".timer_post__day .minutes").html(info.minutes)
                 $(item).find(".timer_post__day .seconds ").html(info.seconds)
-
-                // let off = (get_time_expire - get_time_start)
-                // let percent = (info.distance * 100) / off
-                // $(item).find(".timer_post__line span").css({"width": percent + '%'})
-
 
                 let x = setInterval(function () {
                     let info = get_time_format(get_time_expire)

@@ -25,6 +25,11 @@ body {
     max-width: 1300px;
   }
 }
+@media (min-width: 1700px) {
+  .container--1300 {
+    max-width: 1500px;
+  }
+}
 .pf-3 {
   overflow: hidden;
   display: -webkit-box;
@@ -168,12 +173,29 @@ footer .footer-top .list_link ul li {
   font-weight: 500;
   font-size: 1.0769230769em;
   color: #445A74;
+  position: relative;
 }
 footer .footer-top .list_link ul li:hover {
   color: #5201A8;
 }
+footer .footer-top .list_link ul li:hover:before {
+  transform: scale(1);
+}
 footer .footer-top .list_link ul li a {
   padding: 15px 0;
+}
+footer .footer-top .list_link ul li:before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  background: #445A74;
+  border-radius: 100%;
+  transform: scale(0);
+  transition: 0.4s;
+  display: inline-block;
+  top: calc(50% - 3px);
+  right: -12px;
+  position: absolute;
 }
 footer .footer-top .mailchimp {
   display: flex;
@@ -202,9 +224,16 @@ footer .footer-top .mailchimp form input {
   border: 1px solid #DEDEDE !important;
   border-radius: 8px !important;
   padding: 9px 15px 9px 31px !important;
+  transition: all 0.3s;
 }
 footer .footer-top .mailchimp form input::placeholder {
   color: #DEDEDE;
+}
+footer .footer-top .mailchimp form input:focus {
+  border: 1px solid #D9B6FF !important;
+}
+footer .footer-top .mailchimp form #email-error {
+  color: red;
 }
 footer .footer-top .mailchimp form button {
   background: #5201A8;
@@ -215,6 +244,30 @@ footer .footer-top .mailchimp form button {
   font-family: inherit;
   width: 76px;
   height: 36px;
+  overflow: hidden;
+  position: relative;
+  z-index: 99;
+  transition: 0.3s;
+}
+footer .footer-top .mailchimp form button:before {
+  content: "";
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  transition: 0.3s;
+  height: 0;
+  background: #eee;
+  z-index: -1;
+  border-radius: 100%;
+  transform: scale(1.5);
+}
+footer .footer-top .mailchimp form button:hover {
+  color: #5201A8;
+  background: unset;
+}
+footer .footer-top .mailchimp form button:hover:before {
+  height: 100%;
 }
 footer .footer-top .social_media {
   display: flex;
@@ -281,6 +334,24 @@ footer .footer-bottom .list_documents li {
   box-shadow: 0px 3px 5px rgba(163, 163, 163, 0.1);
   border-radius: 8px;
   padding: 2px 9px;
+  position: relative;
+  cursor: pointer;
+}
+footer .footer-bottom .list_documents li:before {
+  background: #D9B6FF;
+  width: 0;
+  transition: 0.4s;
+  height: calc(100% + 2px);
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  z-index: -1;
+  border-radius: 8px;
+}
+footer .footer-bottom .list_documents li:hover:before {
+  width: calc(100% + 2px);
 }
 
 .copy_right {
@@ -455,7 +526,8 @@ footer .footer-bottom .list_documents li {
   font-size: 1.0769230769em;
 }
 .header .call_us:hover i {
-  animation: rotate 2s 0.2s infinite;
+  animation: ring 3s ease-in-out infinite 0.3s;
+  transform-origin: 50% 50%;
 }
 .header .header-top {
   display: flex;
@@ -496,6 +568,8 @@ footer .footer-bottom .list_documents li {
   align-items: center;
   gap: 8px;
   color: #5201A8;
+  padding-top: 9px;
+  padding-bottom: 9px;
 }
 .header .header-top__left .register .button i {
   font-size: 1.2307692308em;
@@ -503,6 +577,36 @@ footer .footer-bottom .list_documents li {
 .header .header-top__left .register .button span {
   font-weight: 500;
   font-size: 1.0769230769em;
+}
+.header .header-top__left .register .button:before {
+  content: "";
+  transition: 0.3s;
+  position: absolute;
+  top: 0;
+  height: 1px;
+  background: var(--color1);
+  right: 0;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: right center;
+}
+.header .header-top__left .register .button:after {
+  content: "";
+  transition: 0.3s;
+  position: absolute;
+  bottom: 0;
+  height: 1px;
+  background: var(--color1);
+  left: 0;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+.header .header-top__left .register .button:hover:before {
+  transform: scaleX(1);
+}
+.header .header-top__left .register .button:hover:after {
+  transform: scaleX(1);
 }
 .header .header-top__left .call_us {
   display: none;
@@ -689,7 +793,7 @@ footer .footer-bottom .list_documents li {
   filter: blur(3px);
 }
 .item-product.scale {
-  transform: scale(1.09);
+  transform: scale(1.09) !important;
 }
 .item-product:hover {
   box-shadow: 0px 0px 1px 1px #eee;
@@ -699,6 +803,9 @@ footer .footer-bottom .list_documents li {
 @media screen and (max-width: 1299.98px) {
   .list_categoris {
     column-gap: 66px;
+  }
+  footer {
+    padding-bottom: 20px;
   }
 }
 @media screen and (max-width: 1199.98px) {
@@ -822,13 +929,43 @@ footer .footer-bottom .list_documents li {
   .header .header-top__left .register {
     background: #eee;
     border-radius: 12px;
-    padding: 9px;
+    padding-right: 9px;
+    padding-left: 9px;
+    position: relative;
+    overflow: hidden;
   }
   .header .header-top__left .register .button {
     font-size: 1.3em;
+    z-index: 99;
+    transition: 0.3s;
   }
   .header .header-top__left .register .button span {
     display: none;
+  }
+  .header .header-top__left .register .button:before {
+    display: none;
+  }
+  .header .header-top__left .register .button:after {
+    display: none;
+  }
+  .header .header-top__left .register:before {
+    content: "";
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    transition: 0.3s;
+    height: 0;
+    background: #5201A8;
+    border-radius: 100%;
+    transform: scale(1.5);
+    z-index: 9;
+  }
+  .header .header-top__left .register:hover:before {
+    height: 100%;
+  }
+  .header .header-top__left .register:hover .button {
+    color: #fff;
   }
   .header .header-top__left .call_us {
     display: block;
@@ -838,6 +975,31 @@ footer .footer-bottom .list_documents li {
     border: unset;
     font-size: 1.3em;
     line-height: 1;
+    overflow: hidden;
+    position: relative;
+    z-index: 99;
+  }
+  .header .header-top__left .call_us i {
+    transition: 0.3s;
+  }
+  .header .header-top__left .call_us:before {
+    content: "";
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    transition: 0.3s;
+    height: 0;
+    background: #5201A8;
+    border-radius: 100%;
+    transform: scale(1.5);
+    z-index: -3;
+  }
+  .header .header-top__left .call_us:hover:before {
+    height: 100%;
+  }
+  .header .header-top__left .call_us:hover i {
+    color: #fff;
   }
   .navigation_slider.best-saller {
     bottom: 12px;
@@ -913,11 +1075,48 @@ footer .footer-bottom .list_documents li {
   .header_products_offer .tab-title .item.active {
     font-size: 1.1538461538em;
   }
+  .header .header-top__left .basket {
+    position: relative;
+    overflow: hidden;
+    z-index: 99;
+  }
   .header .header-top__left .basket span {
     display: none;
   }
+  .header .header-top__left .basket i {
+    transition: all 0.3s;
+  }
+  .header .header-top__left .basket:before {
+    content: "";
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    transition: 0.3s;
+    height: 0;
+    background: #5201A8;
+    border-radius: 100%;
+    transform: scale(1.5);
+    z-index: -1;
+  }
+  .header .header-top__left .basket:hover:before {
+    height: 100%;
+  }
+  .header .header-top__left .basket:hover i {
+    color: #fff;
+  }
   .header-slider span {
     font-size: 1.5384615385em;
+  }
+  footer .footer-top .mailchimp {
+    width: 100%;
+    align-items: center;
+  }
+  footer .footer-top .mailchimp form {
+    width: 100%;
+  }
+  footer .footer-top .mailchimp form div {
+    flex-grow: 1;
   }
 }
 @media screen and (max-width: 459.98px) {
@@ -951,6 +1150,41 @@ footer .footer-bottom .list_documents li {
   }
   100% {
     rotate: 0deg;
+  }
+}
+@keyframes ring {
+  0% {
+    transform: rotateZ(0);
+  }
+  10% {
+    transform: rotateZ(-30deg);
+  }
+  20% {
+    transform: rotateZ(15deg);
+  }
+  30% {
+    transform: rotateZ(-10deg);
+  }
+  40% {
+    transform: rotateZ(7.5deg);
+  }
+  50% {
+    transform: rotateZ(-6deg);
+  }
+  60% {
+    transform: rotateZ(5deg);
+  }
+  70% {
+    transform: rotateZ(-4.28571deg);
+  }
+  80% {
+    transform: rotateZ(3.75deg);
+  }
+  90% {
+    transform: rotateZ(-3.33333deg);
+  }
+  100% {
+    transform: rotateZ(0);
   }
 }
 

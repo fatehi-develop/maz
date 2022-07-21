@@ -9,10 +9,10 @@ $phone_number = explode('-' , $contact_number);
             <div class="header-top">
                 <div class="header-top__right">
                     <a class="logo" href="<?= home_url() ?>"><img src="<?= $home_logo["url"] ?>" alt=""></a>
-                    <form class="search" action="">
+                    <div class="search">
                         <button type="submit"><i class="icon-search"></i></button>
                         <input type="text" placeholder="جستجو در کتاب‌ها ">
-                    </form>
+                    </div>
                 </div>
                 <div class="header-top__left">
                     <a class="call_us" href="">

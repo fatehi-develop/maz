@@ -118,9 +118,9 @@
 .content_products_offer::before {
   position: absolute;
   content: url("../img/wave-offer-section.svg");
-  bottom: -7px;
+  bottom: -8px;
   right: 50%;
-  width: 285px;
+  width: 287px;
   transform: translate(50%);
 }
 
@@ -128,6 +128,7 @@
   display: block;
   overflow: hidden;
   border-radius: 24px;
+  position: relative;
 }
 .section-banners .item-banner img {
   width: 100%;
@@ -136,8 +137,26 @@
   transition: all 0.3s;
   overflow: hidden;
 }
+.section-banners .item-banner:hover:before {
+  animation: shine 1.25s;
+}
 .section-banners .item-banner:hover img {
   transform: scale(1.03);
+}
+.section-banners .item-banner:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -105%;
+  z-index: 2;
+  display: block;
+  width: 50%;
+  height: 100%;
+  background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 233, 233, 0.3) 100%);
+  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 232, 232, 0.3) 100%);
+  -webkit-transform: skewX(-25deg);
+  transform: skewX(-25deg);
+  pointer-events: none;
 }
 
 .box_slider_header {
@@ -176,6 +195,7 @@
   border-radius: 12px;
   overflow: hidden;
   padding: 16px;
+  height: 100%;
 }
 .box_offer_day .offer_day_head {
   display: flex;
@@ -216,6 +236,7 @@
   position: relative;
   z-index: 99;
   margin-bottom: 10px;
+  display: block;
 }
 .box_offer_day .slider_offer_day .item_slider_offer_day .img img {
   width: 133px;
@@ -243,6 +264,7 @@
   color: #253343;
   margin-bottom: 10px;
   line-height: 1.7em;
+  max-height: 54px;
 }
 
 .list_categoris {
@@ -416,6 +438,16 @@
   bottom: 0;
   right: 50%;
   transform: translate(50%);
+}
+@-webkit-keyframes shine {
+  100% {
+    left: 125%;
+  }
+}
+@keyframes shine {
+  100% {
+    left: 125%;
+  }
 }
 
 /*# sourceMappingURL=home.css.map */
