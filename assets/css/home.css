@@ -29,7 +29,7 @@
 .header_products_offer {
   display: flex;
   margin-bottom: 30px;
-  align-items: baseline;
+  align-items: center;
   min-height: 40px;
 }
 .header_products_offer__title {
@@ -76,12 +76,12 @@
   align-items: center;
   gap: 32px;
   flex-grow: 1;
+  width: max-content;
   font-weight: 400;
   font-size: 1.2307692308em;
   color: #464646;
   cursor: pointer;
-  overflow: scroll;
-  padding-bottom: 10px;
+  transition: 0.3s;
 }
 .header_products_offer .tab-title .item {
   white-space: nowrap;
@@ -91,6 +91,7 @@
   font-weight: 600;
   font-size: 1.3846153846em;
   color: #98C200;
+  transition: all 0.3s;
 }
 
 .products_offer_slider .owl-stage-outer {
@@ -167,7 +168,7 @@
   content: url("../img/svg_slider_header.svg");
   width: 293px;
   z-index: 99;
-  bottom: -8px;
+  bottom: -7px;
   right: 9px;
 }
 
@@ -326,7 +327,7 @@
   width: 530px;
   position: relative;
   background: #EA3174;
-  border-radius: 24px;
+  border-radius: 24px 24px 0 24px;
   overflow: hidden;
 }
 .list_best_sellers .banner img {

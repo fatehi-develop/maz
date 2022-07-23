@@ -27,7 +27,7 @@ function websima_scripts(){
 
     wp_enqueue_style('package', get_template_directory_uri() . "/assets/css/package.css");
 
-    wp_enqueue_script('header_js', get_template_directory_uri() . '/assets/js/header-bundle.js', null, 1.0, false);
+    wp_enqueue_script('header_js', get_template_directory_uri() . '/assets/js/package.js', null, 1.0, false);
 
     if(!is_front_page()){
 		wp_enqueue_script('lightgalleryjs', THEME_URL . '/assets/js/lightgallery.js', array('jquery'), '2.0', true);
@@ -602,6 +602,15 @@ function websima_theme_op_init() {
             'page_title' => 'تنظیمات اختصاصی',     
             'menu_title' => 'تنظیمات اختصاصی',
             'menu_slug' => 'websima-package-general-settings',     
+            'capability' => 'edit_posts'
+        ));
+    }
+    if (function_exists('acf_add_options_page')) {
+        acf_add_options_sub_page(array(
+            'page_title' => 'تنطیمات محصولات',
+            'menu_title' => 'تنطیمات محصولات',
+            'menu_slug' => 'websima-package-post-settings',
+            'parent_slug' => 'websima-package-general-settings',
             'capability' => 'edit_posts'
         ));
     }

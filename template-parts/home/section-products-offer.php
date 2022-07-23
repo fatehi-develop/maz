@@ -32,7 +32,7 @@ $selection_products = get_sub_field("products_list");
                             <span class="icon"><i class="icon-percent"></i></span>
                             <span class="title"> شگفت‌انگیز‌ها</span>
                         </div>
-                        <div class="tab-title">
+                        <div class="owl-theme slider_tab_title tab-title">
                             <?php
                             if (isset($selection_products)) {
                                 $i = 1;

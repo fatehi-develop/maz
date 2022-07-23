@@ -15,9 +15,18 @@ $count_days_after_publish_product = floor($diff_time / (24 * 60 * 60));
 
 $get_availability = $product->get_availability()["class"];
 $out_of_stock_product = $product->get_availability()["class"] == "out-of-stock";
+
+
+$new_products_meta = get_field("new_products", $product->get_id());
+if (isset($new_products_meta) && !empty($new_products_meta)) {
+    $day_new_products = $new_products_meta;
+} else {
+    $day_new_products = get_field("new_products", "option");
+}
+
 ?>
 <article class="item-product" data-sale-to="<?= $sales_price_to ?>" data-sale-from="<?= $sales_price_from ?>">
-    <?php if ($count_days_after_publish_product < 2) { ?>
+    <?php if ($count_days_after_publish_product < $day_new_products) { ?>
         <span class="new">جدید!</span>
     <?php } ?>
     <a class="item-product__img" href="<?= get_the_permalink() ?>"><?= the_thumbnail("img_product_index") ?></a>

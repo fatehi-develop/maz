@@ -38,18 +38,18 @@ $image_special_mode = get_sub_field("image_special_mode");
                         <i class="icon-Big-Arrows-left"></i>
                     </a>
                 </div>
-            </div>
-            <div class="owl-carousel swiper_category_product owl-custom-slider">
-                <?php
+                <div class="owl-carousel swiper_category_product owl-custom-slider">
+                    <?php
 
-                while ($query_product->have_posts()) {
-                    $query_product->the_post();
+                    while ($query_product->have_posts()) {
+                        $query_product->the_post();
+                        ?>
+                        <?php get_template_part("template-parts/home/item-post", null) ?>
+                    <?php }
+                    wp_reset_query();
+                    wp_reset_postdata();
                     ?>
-                    <?php get_template_part("template-parts/home/item-post", null) ?>
-                <?php }
-                wp_reset_query();
-                wp_reset_postdata();
-                ?>
+                </div>
             </div>
         </section>
 
